@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/SituacionProblema.dir/src/main.cpp.o CMakeFiles/SituacionProblema.dir/src/nuevo.cpp.o CMakeFiles/SituacionProblema.dir/src/saludo.cpp.o -o build/SituacionProblema 

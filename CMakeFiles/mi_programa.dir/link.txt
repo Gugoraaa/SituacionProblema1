@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/mi_programa.dir/src/main.cpp.o -o build/mi_programa 
