@@ -8,8 +8,6 @@ public:
     std::string getRestaurant() ;
     std::string getOrder() ;
     int getPrice() ;
-    
-
 private:
     std::string date;
     std::string restaurant;
