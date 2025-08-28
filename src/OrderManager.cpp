@@ -35,14 +35,14 @@ bool OrderManager:: loadOrders(std::string& filename) {
 Order OrderManager::parseLine(std::string& line) {
     std::string month = line.substr(0, 3);
 
-    // Handle single-digit days: Find the first non-digit character after the month
+    
     size_t day_start = 4;
     size_t day_end = line.find_first_not_of("0123456789", day_start);
-    std::string day = line.substr(day_start, day_end - day_start);  // Extract day correctly
+    std::string day = line.substr(day_start, day_end - day_start);  
 
-    std::string time = line.substr(day_end + 1, 8);  // Start after the day and a space
+    std::string time = line.substr(day_end + 1, 8);  
 
-    // Ensure time is in the correct format (hh:mm:ss)
+    
     size_t hour_end = time.find(":");
     std::string hour = time.substr(0, hour_end);
     
@@ -51,32 +51,32 @@ Order OrderManager::parseLine(std::string& line) {
     
     std::string second = time.substr(minute_end + 1);
 
-    // Add leading zeros to single-digit hours, minutes, or seconds
+    
     if (hour.length() == 1) hour = "0" + hour;
     if (minute.length() == 1) minute = "0" + minute;
     if (second.length() == 1) second = "0" + second;
 
-    // Construct the full time in hh:mm:ss format
+    
     std::string formattedTime = hour + ":" + minute + ":" + second;
 
     std::string date = month + " " + day + " " + formattedTime;
 
-    // Find the position of "R:" (Restaurant) and "O:" (Order) markers
+    
     size_t r_pos = line.find("R:") + 2;  
     size_t o_pos = line.find("O:");
 
-    // Extract restaurant name correctly
+    
     std::string restaurant = line.substr(r_pos, o_pos - r_pos);  
 
-    // Extract the order part, considering the correct position of the price and order markers
+    
     size_t dish_start = o_pos + 2;
     size_t price_start = line.find("(") + 1;  
     size_t price_end = line.find(")");  
 
-    // Make sure we are extracting the correct order portion
+
     std::string order = line.substr(dish_start, price_start - dish_start - 1);  
 
-    // Convert the price
+    
     int price = std::stoi(line.substr(price_start, price_end - price_start));
 
     long long numberDate = convertToComparableDate(date.c_str());
