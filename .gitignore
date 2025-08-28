@@ -1,0 +1,16 @@
+# Archivos de compilación de CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+
+# Archivos generados por el compilador
+*.o
+*.out
+*.d
+
+# Ejecutable
+SituacionProblema
+
+# Directorio de compilación
+build/

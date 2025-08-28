@@ -1,5 +1,0 @@
-/home/gugora/SpAlgoritmos/CMakeFiles/SituacionProblema.dir
-/home/gugora/SpAlgoritmos/CMakeFiles/run.dir
-/home/gugora/SpAlgoritmos/CMakeFiles/make_and_run.dir
-/home/gugora/SpAlgoritmos/CMakeFiles/edit_cache.dir
-/home/gugora/SpAlgoritmos/CMakeFiles/rebuild_cache.dir
