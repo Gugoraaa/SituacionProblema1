@@ -148,7 +148,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=MiProyecto
+CMAKE_PROJECT_NAME:STATIC=SituacionProblema
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
@@ -223,6 +223,15 @@ MiProyecto_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
 MiProyecto_SOURCE_DIR:STATIC=/home/gugora/SpAlgoritmos
+
+//Value Computed by CMake
+SituacionProblema_BINARY_DIR:STATIC=/home/gugora/SpAlgoritmos
+
+//Value Computed by CMake
+SituacionProblema_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+SituacionProblema_SOURCE_DIR:STATIC=/home/gugora/SpAlgoritmos
 
 
 ########################

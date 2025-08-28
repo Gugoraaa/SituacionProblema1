@@ -1,28 +1,32 @@
 cmake_minimum_required(VERSION 3.10)
 
-# Nombre del proyecto
-project(MiProyecto)
+project(SituacionProblema)
 
-# Especificar el estándar de C++
-set(CMAKE_CXX_STANDARD 11)
+# Set the C++ standard to C++17 (for filesystem support)
+set(CMAKE_CXX_STANDARD 17)
 
-# Incluir el directorio 'include' para los encabezados
+# Include the 'include' directory for headers
 include_directories(include)
 
-# Buscar todos los archivos .cpp en el directorio src
+# Find all .cpp files in the 'src' directory
 file(GLOB SOURCES "src/*.cpp")
 
-# Especificar la carpeta donde se generará el ejecutable
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/build)
+# Specify the folder where the executable will be generated (root of the project)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR})  # This sets the output directory to the root
 
-# Crear el ejecutable
+# Create the executable from the sources
 add_executable(SituacionProblema ${SOURCES})
 
-# Regla personalizada para ejecutar el programa automáticamente después de compilar
+# Custom rule to run the program automatically after building
 add_custom_target(run
-    COMMAND ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/SituacionProblema   # Ejecuta desde la carpeta build
+    COMMAND ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/SituacionProblema  # Execute from the root directory
     DEPENDS SituacionProblema
 )
 
-# Asegura que la compilación siempre ejecute el programa
+# Ensure that the 'run' target depends on 'SituacionProblema'
 add_dependencies(run SituacionProblema)
+
+# Ensure the program runs when make is called
+add_custom_target(make_and_run ALL
+    DEPENDS run
+)

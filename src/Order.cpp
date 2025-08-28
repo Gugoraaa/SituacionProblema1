@@ -1,32 +1,35 @@
 #include <iostream>
 #include "Order.hpp"
 
-Order::Order(std::string date, std::string restaurant, std::string order, int price)
-    : date(date), restaurant(restaurant), order(order), price(price) {
+Order::Order() {
+    date = "";
+    restaurant = "";
+    order = "";
+    price = 0;
     numberDate = 0;
 }
+Order::Order(std::string date, std::string restaurant, std::string order, int price, long long numberDate)
+    : date(date), restaurant(restaurant), order(order), price(price),numberDate(numberDate) {
+   
+}
 
-std::string Order::getDate() {
+std::string Order::getDate() const{
     return this -> date;
 }
 
-std::string Order::getRestaurant() {
+std::string Order::getRestaurant() const{
     return this -> restaurant;
 }
 
-std::string Order::getOrder() {
+std::string Order::getOrder() const{
     return this ->  order;
 }
 
-int Order::getPrice() {
+int Order::getPrice() const{
     return this -> price;
 }
 
-int Order::getNumberDate(){
+long long Order::getNumberDate() const{
     return this -> numberDate;
 }
 
-void Order::setNumberDate(int nDate){
-    this -> numberDate = nDate;
-    return ; 
-}

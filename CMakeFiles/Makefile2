@@ -64,6 +64,7 @@ CMAKE_BINARY_DIR = /home/gugora/SpAlgoritmos
 
 # The main recursive "all" target.
 all: CMakeFiles/SituacionProblema.dir/all
+all: CMakeFiles/make_and_run.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -73,6 +74,7 @@ preinstall:
 # The main recursive "clean" target.
 clean: CMakeFiles/SituacionProblema.dir/clean
 clean: CMakeFiles/run.dir/clean
+clean: CMakeFiles/make_and_run.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -82,12 +84,12 @@ clean: CMakeFiles/run.dir/clean
 CMakeFiles/SituacionProblema.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SituacionProblema.dir/build.make CMakeFiles/SituacionProblema.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SituacionProblema.dir/build.make CMakeFiles/SituacionProblema.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/gugora/SpAlgoritmos/CMakeFiles --progress-num=1,2,3,4 "Built target SituacionProblema"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/gugora/SpAlgoritmos/CMakeFiles --progress-num=1,2,3,4,5 "Built target SituacionProblema"
 .PHONY : CMakeFiles/SituacionProblema.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/SituacionProblema.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gugora/SpAlgoritmos/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gugora/SpAlgoritmos/CMakeFiles 5
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/SituacionProblema.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gugora/SpAlgoritmos/CMakeFiles 0
 .PHONY : CMakeFiles/SituacionProblema.dir/rule
@@ -113,7 +115,7 @@ CMakeFiles/run.dir/all: CMakeFiles/SituacionProblema.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/run.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gugora/SpAlgoritmos/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gugora/SpAlgoritmos/CMakeFiles 5
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/run.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gugora/SpAlgoritmos/CMakeFiles 0
 .PHONY : CMakeFiles/run.dir/rule
@@ -126,6 +128,32 @@ run: CMakeFiles/run.dir/rule
 CMakeFiles/run.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/run.dir/build.make CMakeFiles/run.dir/clean
 .PHONY : CMakeFiles/run.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/make_and_run.dir
+
+# All Build rule for target.
+CMakeFiles/make_and_run.dir/all: CMakeFiles/run.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/make_and_run.dir/build.make CMakeFiles/make_and_run.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/make_and_run.dir/build.make CMakeFiles/make_and_run.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/gugora/SpAlgoritmos/CMakeFiles --progress-num= "Built target make_and_run"
+.PHONY : CMakeFiles/make_and_run.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/make_and_run.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gugora/SpAlgoritmos/CMakeFiles 5
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/make_and_run.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gugora/SpAlgoritmos/CMakeFiles 0
+.PHONY : CMakeFiles/make_and_run.dir/rule
+
+# Convenience name for target.
+make_and_run: CMakeFiles/make_and_run.dir/rule
+.PHONY : make_and_run
+
+# clean rule for target.
+CMakeFiles/make_and_run.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/make_and_run.dir/build.make CMakeFiles/make_and_run.dir/clean
+.PHONY : CMakeFiles/make_and_run.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

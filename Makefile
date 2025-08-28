@@ -142,6 +142,91 @@ run/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/run.dir/build.make CMakeFiles/run.dir/build
 .PHONY : run/fast
 
+#=============================================================================
+# Target rules for targets named make_and_run
+
+# Build rule for target.
+make_and_run: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 make_and_run
+.PHONY : make_and_run
+
+# fast build rule for target.
+make_and_run/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/make_and_run.dir/build.make CMakeFiles/make_and_run.dir/build
+.PHONY : make_and_run/fast
+
+src/DataCoverter.o: src/DataCoverter.cpp.o
+.PHONY : src/DataCoverter.o
+
+# target to build an object file
+src/DataCoverter.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SituacionProblema.dir/build.make CMakeFiles/SituacionProblema.dir/src/DataCoverter.cpp.o
+.PHONY : src/DataCoverter.cpp.o
+
+src/DataCoverter.i: src/DataCoverter.cpp.i
+.PHONY : src/DataCoverter.i
+
+# target to preprocess a source file
+src/DataCoverter.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SituacionProblema.dir/build.make CMakeFiles/SituacionProblema.dir/src/DataCoverter.cpp.i
+.PHONY : src/DataCoverter.cpp.i
+
+src/DataCoverter.s: src/DataCoverter.cpp.s
+.PHONY : src/DataCoverter.s
+
+# target to generate assembly for a file
+src/DataCoverter.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SituacionProblema.dir/build.make CMakeFiles/SituacionProblema.dir/src/DataCoverter.cpp.s
+.PHONY : src/DataCoverter.cpp.s
+
+src/Order.o: src/Order.cpp.o
+.PHONY : src/Order.o
+
+# target to build an object file
+src/Order.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SituacionProblema.dir/build.make CMakeFiles/SituacionProblema.dir/src/Order.cpp.o
+.PHONY : src/Order.cpp.o
+
+src/Order.i: src/Order.cpp.i
+.PHONY : src/Order.i
+
+# target to preprocess a source file
+src/Order.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SituacionProblema.dir/build.make CMakeFiles/SituacionProblema.dir/src/Order.cpp.i
+.PHONY : src/Order.cpp.i
+
+src/Order.s: src/Order.cpp.s
+.PHONY : src/Order.s
+
+# target to generate assembly for a file
+src/Order.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SituacionProblema.dir/build.make CMakeFiles/SituacionProblema.dir/src/Order.cpp.s
+.PHONY : src/Order.cpp.s
+
+src/OrderManager.o: src/OrderManager.cpp.o
+.PHONY : src/OrderManager.o
+
+# target to build an object file
+src/OrderManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SituacionProblema.dir/build.make CMakeFiles/SituacionProblema.dir/src/OrderManager.cpp.o
+.PHONY : src/OrderManager.cpp.o
+
+src/OrderManager.i: src/OrderManager.cpp.i
+.PHONY : src/OrderManager.i
+
+# target to preprocess a source file
+src/OrderManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SituacionProblema.dir/build.make CMakeFiles/SituacionProblema.dir/src/OrderManager.cpp.i
+.PHONY : src/OrderManager.cpp.i
+
+src/OrderManager.s: src/OrderManager.cpp.s
+.PHONY : src/OrderManager.s
+
+# target to generate assembly for a file
+src/OrderManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SituacionProblema.dir/build.make CMakeFiles/SituacionProblema.dir/src/OrderManager.cpp.s
+.PHONY : src/OrderManager.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -166,54 +251,6 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SituacionProblema.dir/build.make CMakeFiles/SituacionProblema.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
-src/nuevo.o: src/nuevo.cpp.o
-.PHONY : src/nuevo.o
-
-# target to build an object file
-src/nuevo.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SituacionProblema.dir/build.make CMakeFiles/SituacionProblema.dir/src/nuevo.cpp.o
-.PHONY : src/nuevo.cpp.o
-
-src/nuevo.i: src/nuevo.cpp.i
-.PHONY : src/nuevo.i
-
-# target to preprocess a source file
-src/nuevo.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SituacionProblema.dir/build.make CMakeFiles/SituacionProblema.dir/src/nuevo.cpp.i
-.PHONY : src/nuevo.cpp.i
-
-src/nuevo.s: src/nuevo.cpp.s
-.PHONY : src/nuevo.s
-
-# target to generate assembly for a file
-src/nuevo.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SituacionProblema.dir/build.make CMakeFiles/SituacionProblema.dir/src/nuevo.cpp.s
-.PHONY : src/nuevo.cpp.s
-
-src/saludo.o: src/saludo.cpp.o
-.PHONY : src/saludo.o
-
-# target to build an object file
-src/saludo.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SituacionProblema.dir/build.make CMakeFiles/SituacionProblema.dir/src/saludo.cpp.o
-.PHONY : src/saludo.cpp.o
-
-src/saludo.i: src/saludo.cpp.i
-.PHONY : src/saludo.i
-
-# target to preprocess a source file
-src/saludo.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SituacionProblema.dir/build.make CMakeFiles/SituacionProblema.dir/src/saludo.cpp.i
-.PHONY : src/saludo.cpp.i
-
-src/saludo.s: src/saludo.cpp.s
-.PHONY : src/saludo.s
-
-# target to generate assembly for a file
-src/saludo.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SituacionProblema.dir/build.make CMakeFiles/SituacionProblema.dir/src/saludo.cpp.s
-.PHONY : src/saludo.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -222,17 +259,21 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... make_and_run"
 	@echo "... run"
 	@echo "... SituacionProblema"
+	@echo "... src/DataCoverter.o"
+	@echo "... src/DataCoverter.i"
+	@echo "... src/DataCoverter.s"
+	@echo "... src/Order.o"
+	@echo "... src/Order.i"
+	@echo "... src/Order.s"
+	@echo "... src/OrderManager.o"
+	@echo "... src/OrderManager.i"
+	@echo "... src/OrderManager.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
-	@echo "... src/nuevo.o"
-	@echo "... src/nuevo.i"
-	@echo "... src/nuevo.s"
-	@echo "... src/saludo.o"
-	@echo "... src/saludo.i"
-	@echo "... src/saludo.s"
 .PHONY : help
 
 

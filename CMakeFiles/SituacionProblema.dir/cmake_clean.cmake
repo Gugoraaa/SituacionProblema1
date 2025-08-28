@@ -1,12 +1,14 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/SituacionProblema.dir/src/DataCoverter.cpp.o"
+  "CMakeFiles/SituacionProblema.dir/src/DataCoverter.cpp.o.d"
+  "CMakeFiles/SituacionProblema.dir/src/Order.cpp.o"
+  "CMakeFiles/SituacionProblema.dir/src/Order.cpp.o.d"
+  "CMakeFiles/SituacionProblema.dir/src/OrderManager.cpp.o"
+  "CMakeFiles/SituacionProblema.dir/src/OrderManager.cpp.o.d"
   "CMakeFiles/SituacionProblema.dir/src/main.cpp.o"
   "CMakeFiles/SituacionProblema.dir/src/main.cpp.o.d"
-  "CMakeFiles/SituacionProblema.dir/src/nuevo.cpp.o"
-  "CMakeFiles/SituacionProblema.dir/src/nuevo.cpp.o.d"
-  "CMakeFiles/SituacionProblema.dir/src/saludo.cpp.o"
-  "CMakeFiles/SituacionProblema.dir/src/saludo.cpp.o.d"
-  "build/SituacionProblema"
-  "build/SituacionProblema.pdb"
+  "SituacionProblema"
+  "SituacionProblema.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

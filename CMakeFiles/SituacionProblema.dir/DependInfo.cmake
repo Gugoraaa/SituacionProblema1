@@ -8,9 +8,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/gugora/SpAlgoritmos/src/DataCoverter.cpp" "CMakeFiles/SituacionProblema.dir/src/DataCoverter.cpp.o" "gcc" "CMakeFiles/SituacionProblema.dir/src/DataCoverter.cpp.o.d"
+  "/home/gugora/SpAlgoritmos/src/Order.cpp" "CMakeFiles/SituacionProblema.dir/src/Order.cpp.o" "gcc" "CMakeFiles/SituacionProblema.dir/src/Order.cpp.o.d"
+  "/home/gugora/SpAlgoritmos/src/OrderManager.cpp" "CMakeFiles/SituacionProblema.dir/src/OrderManager.cpp.o" "gcc" "CMakeFiles/SituacionProblema.dir/src/OrderManager.cpp.o.d"
   "/home/gugora/SpAlgoritmos/src/main.cpp" "CMakeFiles/SituacionProblema.dir/src/main.cpp.o" "gcc" "CMakeFiles/SituacionProblema.dir/src/main.cpp.o.d"
-  "/home/gugora/SpAlgoritmos/src/nuevo.cpp" "CMakeFiles/SituacionProblema.dir/src/nuevo.cpp.o" "gcc" "CMakeFiles/SituacionProblema.dir/src/nuevo.cpp.o.d"
-  "/home/gugora/SpAlgoritmos/src/saludo.cpp" "CMakeFiles/SituacionProblema.dir/src/saludo.cpp.o" "gcc" "CMakeFiles/SituacionProblema.dir/src/saludo.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

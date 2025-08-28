@@ -69,10 +69,52 @@ include CMakeFiles/SituacionProblema.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/SituacionProblema.dir/flags.make
 
+CMakeFiles/SituacionProblema.dir/src/DataCoverter.cpp.o: CMakeFiles/SituacionProblema.dir/flags.make
+CMakeFiles/SituacionProblema.dir/src/DataCoverter.cpp.o: src/DataCoverter.cpp
+CMakeFiles/SituacionProblema.dir/src/DataCoverter.cpp.o: CMakeFiles/SituacionProblema.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/gugora/SpAlgoritmos/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/SituacionProblema.dir/src/DataCoverter.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SituacionProblema.dir/src/DataCoverter.cpp.o -MF CMakeFiles/SituacionProblema.dir/src/DataCoverter.cpp.o.d -o CMakeFiles/SituacionProblema.dir/src/DataCoverter.cpp.o -c /home/gugora/SpAlgoritmos/src/DataCoverter.cpp
+
+CMakeFiles/SituacionProblema.dir/src/DataCoverter.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/SituacionProblema.dir/src/DataCoverter.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/gugora/SpAlgoritmos/src/DataCoverter.cpp > CMakeFiles/SituacionProblema.dir/src/DataCoverter.cpp.i
+
+CMakeFiles/SituacionProblema.dir/src/DataCoverter.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SituacionProblema.dir/src/DataCoverter.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/gugora/SpAlgoritmos/src/DataCoverter.cpp -o CMakeFiles/SituacionProblema.dir/src/DataCoverter.cpp.s
+
+CMakeFiles/SituacionProblema.dir/src/Order.cpp.o: CMakeFiles/SituacionProblema.dir/flags.make
+CMakeFiles/SituacionProblema.dir/src/Order.cpp.o: src/Order.cpp
+CMakeFiles/SituacionProblema.dir/src/Order.cpp.o: CMakeFiles/SituacionProblema.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/gugora/SpAlgoritmos/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/SituacionProblema.dir/src/Order.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SituacionProblema.dir/src/Order.cpp.o -MF CMakeFiles/SituacionProblema.dir/src/Order.cpp.o.d -o CMakeFiles/SituacionProblema.dir/src/Order.cpp.o -c /home/gugora/SpAlgoritmos/src/Order.cpp
+
+CMakeFiles/SituacionProblema.dir/src/Order.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/SituacionProblema.dir/src/Order.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/gugora/SpAlgoritmos/src/Order.cpp > CMakeFiles/SituacionProblema.dir/src/Order.cpp.i
+
+CMakeFiles/SituacionProblema.dir/src/Order.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SituacionProblema.dir/src/Order.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/gugora/SpAlgoritmos/src/Order.cpp -o CMakeFiles/SituacionProblema.dir/src/Order.cpp.s
+
+CMakeFiles/SituacionProblema.dir/src/OrderManager.cpp.o: CMakeFiles/SituacionProblema.dir/flags.make
+CMakeFiles/SituacionProblema.dir/src/OrderManager.cpp.o: src/OrderManager.cpp
+CMakeFiles/SituacionProblema.dir/src/OrderManager.cpp.o: CMakeFiles/SituacionProblema.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/gugora/SpAlgoritmos/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/SituacionProblema.dir/src/OrderManager.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SituacionProblema.dir/src/OrderManager.cpp.o -MF CMakeFiles/SituacionProblema.dir/src/OrderManager.cpp.o.d -o CMakeFiles/SituacionProblema.dir/src/OrderManager.cpp.o -c /home/gugora/SpAlgoritmos/src/OrderManager.cpp
+
+CMakeFiles/SituacionProblema.dir/src/OrderManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/SituacionProblema.dir/src/OrderManager.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/gugora/SpAlgoritmos/src/OrderManager.cpp > CMakeFiles/SituacionProblema.dir/src/OrderManager.cpp.i
+
+CMakeFiles/SituacionProblema.dir/src/OrderManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SituacionProblema.dir/src/OrderManager.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/gugora/SpAlgoritmos/src/OrderManager.cpp -o CMakeFiles/SituacionProblema.dir/src/OrderManager.cpp.s
+
 CMakeFiles/SituacionProblema.dir/src/main.cpp.o: CMakeFiles/SituacionProblema.dir/flags.make
 CMakeFiles/SituacionProblema.dir/src/main.cpp.o: src/main.cpp
 CMakeFiles/SituacionProblema.dir/src/main.cpp.o: CMakeFiles/SituacionProblema.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/gugora/SpAlgoritmos/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/SituacionProblema.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/gugora/SpAlgoritmos/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/SituacionProblema.dir/src/main.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SituacionProblema.dir/src/main.cpp.o -MF CMakeFiles/SituacionProblema.dir/src/main.cpp.o.d -o CMakeFiles/SituacionProblema.dir/src/main.cpp.o -c /home/gugora/SpAlgoritmos/src/main.cpp
 
 CMakeFiles/SituacionProblema.dir/src/main.cpp.i: cmake_force
@@ -83,53 +125,27 @@ CMakeFiles/SituacionProblema.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SituacionProblema.dir/src/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/gugora/SpAlgoritmos/src/main.cpp -o CMakeFiles/SituacionProblema.dir/src/main.cpp.s
 
-CMakeFiles/SituacionProblema.dir/src/nuevo.cpp.o: CMakeFiles/SituacionProblema.dir/flags.make
-CMakeFiles/SituacionProblema.dir/src/nuevo.cpp.o: src/nuevo.cpp
-CMakeFiles/SituacionProblema.dir/src/nuevo.cpp.o: CMakeFiles/SituacionProblema.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/gugora/SpAlgoritmos/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/SituacionProblema.dir/src/nuevo.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SituacionProblema.dir/src/nuevo.cpp.o -MF CMakeFiles/SituacionProblema.dir/src/nuevo.cpp.o.d -o CMakeFiles/SituacionProblema.dir/src/nuevo.cpp.o -c /home/gugora/SpAlgoritmos/src/nuevo.cpp
-
-CMakeFiles/SituacionProblema.dir/src/nuevo.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/SituacionProblema.dir/src/nuevo.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/gugora/SpAlgoritmos/src/nuevo.cpp > CMakeFiles/SituacionProblema.dir/src/nuevo.cpp.i
-
-CMakeFiles/SituacionProblema.dir/src/nuevo.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SituacionProblema.dir/src/nuevo.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/gugora/SpAlgoritmos/src/nuevo.cpp -o CMakeFiles/SituacionProblema.dir/src/nuevo.cpp.s
-
-CMakeFiles/SituacionProblema.dir/src/saludo.cpp.o: CMakeFiles/SituacionProblema.dir/flags.make
-CMakeFiles/SituacionProblema.dir/src/saludo.cpp.o: src/saludo.cpp
-CMakeFiles/SituacionProblema.dir/src/saludo.cpp.o: CMakeFiles/SituacionProblema.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/gugora/SpAlgoritmos/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/SituacionProblema.dir/src/saludo.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SituacionProblema.dir/src/saludo.cpp.o -MF CMakeFiles/SituacionProblema.dir/src/saludo.cpp.o.d -o CMakeFiles/SituacionProblema.dir/src/saludo.cpp.o -c /home/gugora/SpAlgoritmos/src/saludo.cpp
-
-CMakeFiles/SituacionProblema.dir/src/saludo.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/SituacionProblema.dir/src/saludo.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/gugora/SpAlgoritmos/src/saludo.cpp > CMakeFiles/SituacionProblema.dir/src/saludo.cpp.i
-
-CMakeFiles/SituacionProblema.dir/src/saludo.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SituacionProblema.dir/src/saludo.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/gugora/SpAlgoritmos/src/saludo.cpp -o CMakeFiles/SituacionProblema.dir/src/saludo.cpp.s
-
 # Object files for target SituacionProblema
 SituacionProblema_OBJECTS = \
-"CMakeFiles/SituacionProblema.dir/src/main.cpp.o" \
-"CMakeFiles/SituacionProblema.dir/src/nuevo.cpp.o" \
-"CMakeFiles/SituacionProblema.dir/src/saludo.cpp.o"
+"CMakeFiles/SituacionProblema.dir/src/DataCoverter.cpp.o" \
+"CMakeFiles/SituacionProblema.dir/src/Order.cpp.o" \
+"CMakeFiles/SituacionProblema.dir/src/OrderManager.cpp.o" \
+"CMakeFiles/SituacionProblema.dir/src/main.cpp.o"
 
 # External object files for target SituacionProblema
 SituacionProblema_EXTERNAL_OBJECTS =
 
-build/SituacionProblema: CMakeFiles/SituacionProblema.dir/src/main.cpp.o
-build/SituacionProblema: CMakeFiles/SituacionProblema.dir/src/nuevo.cpp.o
-build/SituacionProblema: CMakeFiles/SituacionProblema.dir/src/saludo.cpp.o
-build/SituacionProblema: CMakeFiles/SituacionProblema.dir/build.make
-build/SituacionProblema: CMakeFiles/SituacionProblema.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/gugora/SpAlgoritmos/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable build/SituacionProblema"
+SituacionProblema: CMakeFiles/SituacionProblema.dir/src/DataCoverter.cpp.o
+SituacionProblema: CMakeFiles/SituacionProblema.dir/src/Order.cpp.o
+SituacionProblema: CMakeFiles/SituacionProblema.dir/src/OrderManager.cpp.o
+SituacionProblema: CMakeFiles/SituacionProblema.dir/src/main.cpp.o
+SituacionProblema: CMakeFiles/SituacionProblema.dir/build.make
+SituacionProblema: CMakeFiles/SituacionProblema.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/gugora/SpAlgoritmos/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable SituacionProblema"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/SituacionProblema.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/SituacionProblema.dir/build: build/SituacionProblema
+CMakeFiles/SituacionProblema.dir/build: SituacionProblema
 .PHONY : CMakeFiles/SituacionProblema.dir/build
 
 CMakeFiles/SituacionProblema.dir/clean:
