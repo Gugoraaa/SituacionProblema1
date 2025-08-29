@@ -88,7 +88,6 @@ Order OrderManager::parseLine(std::string& line) {
 
 
 void OrderManager::sortOrders() {
-    // Bubble sort: Compare and swap elements based on numberDate
     for (int i = 0; i < orderCount - 1; ++i) {
         for (int j = 0; j < orderCount - i - 1; ++j) {
             if (orders[j].getNumberDate() > orders[j + 1].getNumberDate()) {

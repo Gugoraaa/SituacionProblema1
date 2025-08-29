@@ -93,7 +93,6 @@ long long convertToComparableDate(const char* dateStr) {
                               (minute * 100LL) + 
                               second;
     
-    std::cout << "Comparable Date: " << comparableDate << std::endl;
     
     return comparableDate;
 }
