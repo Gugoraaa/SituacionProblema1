@@ -3,7 +3,8 @@ CMakeCache.txt
 CMakeFiles/
 cmake_install.cmake
 Makefile
-
+.idea/
+.idea
 # Archivos generados por el compilador
 *.o
 *.out
@@ -14,3 +15,6 @@ SituacionProblema
 
 # Directorio de compilación
 build/
+
+# Configuración de VS Code (local)
+.vscode/

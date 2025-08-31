@@ -1,19 +1,20 @@
 #ifndef ORDERMANAGER_HPP
 #define ORDERMANAGER_HPP
-#include <iostream>
 #include <Order.hpp>
 
 class OrderManager {
 public:
     OrderManager();
-    bool loadOrders( std::string& filename);
+    bool loadOrders(const String & filename);
     void sortOrders();
-    // void filterOrdersByDate( std::string& startDate,  std::string& endDate);
-    // void displayTop10Orders() ;
-    // void saveToFile( std::string& filename) ;
+    void filterOrdersByDate(const String & startDate,const String & endDate, bool details = true);
+    void filterOrdersByDate(const char *startDate, const char *endDate, bool details = true);
+    void displayOrders(size_t from, size_t count);
+    // void saveToFile( String& filename) ;
 
 private:
-    Order parseLine(std::string& line);
+    Order parseLine(String& line);
+    int findOrder(long long val,bool exact,bool last) const;
     int orderCount = 0;
     static const int MAX_ORDERS = 11000; 
     Order orders[MAX_ORDERS]; 

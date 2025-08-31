@@ -1,20 +1,20 @@
 #ifndef ORDER_HPP
 #define ORDER_HPP
-#include <iostream>
+#include "CustomString.hpp"
 
 class Order {
 public:
     Order();
-    Order(std::string date, std::string restaurant, std::string order, int pric, long long numberDate);
-    std::string getDate() const;
-    std::string getRestaurant() const;
-    std::string getOrder() const;
+    Order(String date, String restaurant, String order, int pric, long long numberDate);
+    String getDate() const;
+    String getRestaurant() const;
+    String getOrder() const;
     int getPrice() const;
     long long getNumberDate() const;
 private:
-    std::string date;
-    std::string restaurant;
-    std::string order; 
+    String date;
+    String restaurant;
+    String order; 
     long long numberDate; 
     int price;
 };

@@ -1,5 +1,6 @@
 #include "DataConverter.hpp"
 #include <iostream>
+#include "CustomString.hpp"
 
 // le da un numero tomando en cuenta el mes 
 int monthToNumber( const char* month) {
@@ -22,10 +23,10 @@ int monthToNumber( const char* month) {
 
 // convierte el conjuto de la fecha a un long long, para que asi sea sencillo de ordenar 
 long long convertToComparableDate(const char* dateStr) {
-    std::string dateString(dateStr);
+    String dateString(dateStr);
     
     
-    std::string month = dateString.substr(0, 3);
+    String month = dateString.substr(0, 3);
     int monthNum = monthToNumber(month.c_str());
     
     size_t dayStart = 3;
@@ -38,7 +39,7 @@ long long convertToComparableDate(const char* dateStr) {
         dayEnd++;
     }
     
-    std::string dayStr = dateString.substr(dayStart, dayEnd - dayStart);
+    String dayStr = dateString.substr(dayStart, dayEnd - dayStart);
     int dayNum = 0;
     for (char c : dayStr) {
         if (c >= '0' && c <= '9') {
@@ -51,13 +52,13 @@ long long convertToComparableDate(const char* dateStr) {
         timeStart++;
     }
     
-    std::string timeStr = dateString.substr(timeStart);
+    String timeStr = dateString.substr(timeStart);
     
     int hour = 0, minute = 0, second = 0;
     
     size_t firstColon = timeStr.find(':');
-    if (firstColon != std::string::npos) {
-        std::string hourStr = timeStr.substr(0, firstColon);
+    if (firstColon != String::npos) {
+        String hourStr = timeStr.substr(0, firstColon);
         for (char c : hourStr) {
             if (c >= '0' && c <= '9') {
                 hour = hour * 10 + (c - '0');
@@ -65,15 +66,15 @@ long long convertToComparableDate(const char* dateStr) {
         }
         
         size_t secondColon = timeStr.find(':', firstColon + 1);
-        if (secondColon != std::string::npos) {
-            std::string minuteStr = timeStr.substr(firstColon + 1, secondColon - firstColon - 1);
+        if (secondColon != String::npos) {
+            String minuteStr = timeStr.substr(firstColon + 1, secondColon - firstColon - 1);
             for (char c : minuteStr) {
                 if (c >= '0' && c <= '9') {
                     minute = minute * 10 + (c - '0');
                 }
             }
             
-            std::string secondStr = timeStr.substr(secondColon + 1);
+            String secondStr = timeStr.substr(secondColon + 1);
             for (char c : secondStr) {
                 if (c >= '0' && c <= '9') {
                     second = second * 10 + (c - '0');
@@ -93,7 +94,6 @@ long long convertToComparableDate(const char* dateStr) {
                               (minute * 100LL) + 
                               second;
     
-    std::cout << "Comparable Date: " << comparableDate << std::endl;
     
     return comparableDate;
 }

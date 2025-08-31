@@ -1,4 +1,5 @@
 #include <iostream>
+#include "CustomString.hpp"
 #include "Order.hpp"
 
 Order::Order() {
@@ -8,20 +9,20 @@ Order::Order() {
     price = 0;
     numberDate = 0;
 }
-Order::Order(std::string date, std::string restaurant, std::string order, int price, long long numberDate)
+Order::Order(String date, String restaurant, String order, int price, long long numberDate)
     : date(date), restaurant(restaurant), order(order), price(price),numberDate(numberDate) {
    
 }
 
-std::string Order::getDate() const{
+String Order::getDate() const{
     return this -> date;
 }
 
-std::string Order::getRestaurant() const{
+String Order::getRestaurant() const{
     return this -> restaurant;
 }
 
-std::string Order::getOrder() const{
+String Order::getOrder() const{
     return this ->  order;
 }
 
