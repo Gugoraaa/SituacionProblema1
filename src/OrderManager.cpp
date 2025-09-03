@@ -141,16 +141,43 @@ int OrderManager::findOrder(const long long val,const bool exact = true,const bo
 
 
 
-void OrderManager::sortOrders() {
-    for (int i = 0; i < orderCount - 1; ++i) {
-        for (int j = 0; j < orderCount - i - 1; ++j) {
-            if (orders[j].getNumberDate() > orders[j + 1].getNumberDate()) {
-                Order temp = orders[j];
-                orders[j] = orders[j + 1];
-                orders[j + 1] = temp;
-            }
+int OrderManager::partition(Order* arr, int low, int high) {
+    
+    long long pivot = arr[high].getNumberDate();
+    int i = low - 1;  
+
+    
+    for (int j = low; j < high; ++j) {
+        if (arr[j].getNumberDate() <= pivot) {
+            ++i;
+            
+            Order temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
         }
     }
+    
+    Order temp = arr[i + 1];
+    arr[i + 1] = arr[high];
+    arr[high] = temp;
+
+    return i + 1;  
+}
+
+
+void OrderManager::quickSort(Order* arr, int low, int high) {
+    if (low < high) {
+        
+        int pi = partition(arr, low, high);
+
+        
+        quickSort(arr, low, pi - 1);  
+        quickSort(arr, pi + 1, high); 
+    }
+}
+
+void OrderManager::sortOrders() {
+    quickSort(orders, 0, orderCount - 1);  
 }
 
 void OrderManager::filterOrdersByDate(const String &startDate,const String &endDate, const bool details) {
@@ -176,4 +203,19 @@ void OrderManager::displayOrders(const size_t from,const size_t count){
   for (int i = from; i < from + count; i++) {
     std::cout << orders[i].getDate() << " " << orders[i].getRestaurant() << " " << orders[i].getOrder() << " " << orders[i].getPrice() << std::endl;
   }
+}
+
+
+void OrderManager::printOrders() const {
+    // Check if there are orders to print
+    int printLimit = (orderCount < 10) ? orderCount : 10;  // Limit to 10 orders or less
+    for (int i = 0; i < printLimit; ++i) {
+        std::cout << "Order " << (i + 1) << ": " << std::endl;
+        std::cout << "  Date: " << orders[i].getDate() << std::endl;
+        std::cout << "  Restaurant: " << orders[i].getRestaurant() << std::endl;
+        std::cout << "  Order: " << orders[i].getOrder() << std::endl;
+        std::cout << "  Price: " << orders[i].getPrice() << std::endl;
+        std::cout << "  Date (Comparable): " << orders[i].getNumberDate() << std::endl;
+        std::cout << "----------------------------------------" << std::endl;
+    }
 }

@@ -46,7 +46,11 @@
         "streambuf": "cpp",
         "typeinfo": "cpp",
         "fstream": "cpp",
-        "sstream": "cpp"
+        "sstream": "cpp",
+        "codecvt": "cpp",
+        "ctime": "cpp",
+        "ratio": "cpp",
+        "iomanip": "cpp"
     },
     "C_Cpp.clang_format_style": "{ BasedOnStyle: VisualStudio, BreakBeforeBraces: Attach }",
     "editor.formatOnSave": true
