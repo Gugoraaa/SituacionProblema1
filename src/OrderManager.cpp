@@ -35,9 +35,9 @@ bool OrderManager:: loadOrders(const String & filename) {
 }
 
 
-Order OrderManager::parseLine(String& line) {
+Order OrderManager:: parseLine(String& line) {
     String month = line.substr(0, 3);
-
+  
     
     size_t day_start = 4;
     size_t day_end = line.find_first_not_of("0123456789", day_start);

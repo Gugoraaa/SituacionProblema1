@@ -1,0 +1,119 @@
+May 3 12:06:52  The Main  Moussaka 301
+May 3 12:18:28 The Modern Palate  Tacos de Cochinita 271
+May 3 12:18:53 Skyline Diner  Sushi Roll 274
+May 3 12:18:57 La Francesa  Tournedos Rossini 402
+May 3 12:31:15 El Sol  Spaghetti Carbonara 271
+May 3 13:22:58 La Casa del Sabor  Arepas Rellenas 124
+May 3 13:24:37 La Cocina del Chef  Sashimi de Atun 261
+May 3 13:26:4  The Urban Table  Tortellini Alfredo 306
+May 3 13:30:8  Casa de las empanadas  Pollo Tikka Masala 275
+May 3 13:32:47 El Restaurante de la Plaza  Tempura de Vegetales 275
+May 3 13:44:1  The Bee  Falafel con Hummus 254
+May 3 13:45:3  el Cafe del Centro  Panuchos Yucatecos 292
+May 3 14:01:12  La Terraza del Chef  Gnocchi al Pesto 301
+May 3 14:03:47  Don Perfecto  Tacos de Carnitas 275
+May 3 14:08:30  La Rosticeria  Cordero Asado 418
+May 3 15:41:11 El Fogon de la Abuela  Bratwurst con Chucrut 275
+May 3 15:45:53 El Cafe de Lola  Pozole Rojo 288
+May 3 16:27:11 The Fine Dining  Kebab de Cordero 277
+May 3 16:27:28 The Modern eatery  Tacos de Cochinita 265
+May 3 16:33:34 El Restaurante de Ana  Fondue de Queso 410
+May 3 17:03:39  El Rincon del Mar  Pozole Blanco 132
+May 3 17:17:24 La Internacional  Ceviche de Pulpo 285
+May 3 17:40:6  The Food Haven  Panuchos Yucatecos 259
+May 3 18:36:25 La esquina del Taco  Sopa de Cebolla 129
+May 3 18:37:50 The Bistro Lounge  Pollo Teriyaki 287
+May 3 19:01:17  The Trendy Cafe  Filete de Res 432
+May 3 19:34:5  The Urban  Sopa de Mariscos 440
+May 3 20:24:19 La Cocina del Mercado  Arroz Frito 282
+May 3 21:46:9  El Cafe del Valle  Pollo Kiev 406
+May 4 12:49:11 El Cafe del Chef Pablo  Pulled Pork Sandwich 279
+May 4 13:03:44  The Harvest House  Raviolis de espinaca 293
+May 4 13:30:13 The Bistro Lounge  Tarta de Manzana 145
+May 4 13:39:14 Ocean  Filete Mignon 393
+May 4 13:42:52 El Cafe del Chef Pablo  Churrasco 416
+May 4 14:23:54 La Cocina de Pablo  Tarta de Manzana 136
+May 4 17:17:30 The Park  Sopa de Cebolla 146
+May 4 17:50:40 El Cafe de la Abuela  empanadas Argentinas 255
+May 4 17:59:51 The American  Ribeye Steak 416
+May 4 18:05:6 R El Rincon del Mar  Sopa de Tomate 130
+May 4 18:17:37 Harbor Lights Restaurant  Tacos de Camaron 313
+May 4 18:29:51 El Grande  Tacos de Pescado 290
+May 4 18:41:46 La Terraza  Tarta de Manzana 128
+May 4 19:25:52 Bosque Real  Pato a la Naranja 290
+May 4 19:46:32 La Plaza de las Tapas  empanadas de Carne 139
+May 4 19:47:7  The Harvest  ensalada Caprese 136
+May 4 20:27:35 La Terraza  Queso Fundido 130
+May 4 20:50:44 The eatery  Pozole Blanco 139
+May 4 20:56:11 Marthas  Arroz con Pollo 257
+May 5 12:23:9  El Cafe de la Abuela  Sopa de Pescado 386
+May 5 12:34:24 The Spot  Paella de Mariscos 445
+May 5 12:48:11 The other place  Fideua 259
+May 5 12:56:22 El Rincon del Gourmet  Tortilla espanola 254
+May 5 13:05:22  La Terraza del Valle  Fajitas de Res 270
+May 5 13:09:56  The House  Tacos al Pastor 145
+May 5 13:33:16 The Corner Place  Pad Thai 285
+May 5 13:57:30 el Cafe del Centro  Pollo con espinacas 296
+May 5 16:40:4  La Internacional  Tarta de Manzana 138
+May 5 16:41:22 La Furia  Risotto de Champinones 407
+May 5 16:43:18 The Gourmet Deli  Cazuela de Mariscos 398
+May 5 16:49:46 The Countryside  Pechuga de Pollo Rellena 275
+May 5 17:14:10 The elegant eatery  Sopa de Tomate 154
+May 5 17:57:20 The Southern Grill  Curry de Pollo 273
+May 5 18:06:50  Urban eats  Pollo a la Cacciatora 313
+May 5 19:12:30 La Parrilla Argentina  Pizza Margherita 291
+May 5 19:24:9  La Brasserie Gourmet  Fideua 281
+May 5 19:38:41 Sabor a Mar  Pollo a la Brasa 276
+May 5 19:49:14 Sabores del Mundo  Crema de Champinones 129
+May 5 19:56:56 Parkside Grill  Salmon a la Parrilla 307
+May 5 20:09:56  La Terraza  Sopa de Tortilla 130
+May 5 20:15:16 El Rincon Gourmet  Osso Buco 419
+May 5 21:12:28 The Gourmet Deli  Fideua 266
+May 5 23:30:7  La Terraza del Chef  Sopa de Cebolla 152
+May 6 12:27:18 El Cafe del Chef Pablo  Pollo Teriyaki 275
+May 6 12:45:25 The Caffeine Spot  Fettuccine Alfredo 250
+May 6 13:23:40 Skyline Diner  Chow Mein 273
+May 6 13:32:38 Las salsas  Pasta a la Puttanesca 298
+May 6 13:39:19 Los Rincones  Carne Asada 256
+May 6 14:08:4 R La Cocina  Filete de Res 406
+May 6 14:23:24 The Old Town  Pollo Alfredo 317
+May 6 14:35:16 The Old Town  Pollo Tikka Masala 318
+May 6 14:35:24 The Seafood Shack  Moussaka 277
+May 6 15:26:15 The Village  Quesadilla de Queso 158
+May 6 15:41:40 El Otro Rincon  Curry de Pollo 279
+May 6 16:46:0  The Wine Cellar  Sopa Minestrone 143
+May 6 17:04:10  Tierra y Mar  Crepas con Nutella 135
+May 6 17:47:17 The Chic Restaurant  Cordero Asado 425
+May 6 18:01:35  El Sabor  Mole Poblano 282
+May 6 18:03:43  El Sabor del Pueblo  Pozole Blanco 136
+May 6 18:15:44 El Cafe del Jardin  Queso Fundido 137
+May 6 18:37:50 La Cocina de Mama  Falafel con Hummus 256
+May 6 19:51:24 Don Perfecto  Gazpacho Andaluz 140
+May 6 20:22:28 The Fine Dining  Pasta Primavera 274
+May 6 21:01:34  The Urban Table  Sopa de Tomate 154
+May 6 22:44:47 The elegant Kitchen  Tortilla espanola 264
+May 6 23:39:46 The Bistro Spot  Pollo al Limon 301
+May 7 12:54:21 El Cafe del Valle  Pasta al Pesto 275
+May 7 12:57:59 El Sazon Mexicano  Tacos de Cochinita 271
+May 7 13:37:23 The eatery  Tacos de Camaron 271
+May 7 13:37:33 The Bistro Lounge  Croquetas de Jamon 148
+May 7 13:52:7  El Sazon Mexicano  Pasta a la Puttanesca 272
+May 7 15:02:51  La Cocina del Chef  Fideua 259
+May 7 15:37:23 Los Garcia  Coq au Vin 418
+May 7 16:05:14  Los Rincones  Gazpacho Andaluz 127
+May 7 16:21:10 El Rincon del Mar  Quesadilla de Queso 132
+May 7 16:53:51 The Harvest  escargots a la Bourguignonne 278
+May 7 17:13:36 Bistro Boulevard  Pulled Pork Sandwich 298
+May 7 17:44:2  The Harvest House  Lasana Vegetariana 293
+May 7 17:48:40 The Trendy eatery  enchiladas Verdes 287
+May 7 17:55:13 The Table  Quesadilla de Queso 137
+May 7 17:58:42 The Savory  Pechuga de Pollo Rellena 277
+May 7 18:09:59  La esquina del Chef  empanadas Argentinas 251
+May 7 18:37:9  The Trendy Table  Atun a la Parrilla 296
+May 7 18:40:27 La Francesa  Ceviche de Camaron 260
+May 7 18:51:54 The Artisan Table  Bruschetta 126
+May 7 20:11:30 El Restaurante de la Plaza  Sopa de Cebolla 142
+May 7 20:52:16 The Bistro at Sunset  Risotto de Champinones 382
+May 7 21:10:37 El Rincon del Chef  Pasta Alfredo 296
+May 7 21:17:34 Los Garcia  empanadas Argentinas 272
+May 7 21:51:24 La Cocina de la Abuela  Tacos de Pescado 273

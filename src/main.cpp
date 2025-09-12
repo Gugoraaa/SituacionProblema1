@@ -27,7 +27,7 @@ int main() {
       cerr << "Error: no se pudo abrir salida.txt"<< endl;
       return 1;
     }
-    auto *old_buf = cout.rdbuf(out.rdbuf());
+    std::streambuf* old_buf = cout.rdbuf(out.rdbuf());
 
     manager.filterOrdersByDate("Jan 1 00:00:00", "Dec 31 23:59:59",false);
 
@@ -69,7 +69,7 @@ int main() {
       return 1;
     }
 
-    auto *old_buf = cout.rdbuf(outSearch.rdbuf());
+    std::streambuf* old_buf = cout.rdbuf(outSearch.rdbuf());
     try {
       manager.filterOrdersByDate(startDate, endDate,false);
     } catch (const std::exception &ex) {
