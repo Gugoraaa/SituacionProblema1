@@ -2,7 +2,14 @@
 #include <iostream>
 #include "CustomString.hpp"
 
-// le da un numero tomando en cuenta el mes 
+/*
+    Created by Gustavo Gonzalez Ramos
+    funcion: monthToNumber
+    Descripcion: Convierte el nombre de un mes a su correspondiente numero (1-12)
+    Parametros:
+        - month (const char*): Cadena que representa el nombre del mes 
+    Return: (int) Numero del mes (1 para Enero, 2 para Febrero, etc.)
+*/
 int monthToNumber( const char* month) {
     if (month[0] == 'J') {
         if (month[1] == 'a') return 1; 
@@ -21,7 +28,14 @@ int monthToNumber( const char* month) {
     else return 12;
 }
 
-// convierte el conjuto de la fecha a un long long, para que asi sea sencillo de ordenar 
+/*
+    Created by Gustavo Gonzalez Ramos
+    funcion: convertToComparableDate
+    Descripcion: Convierte una cadena de fecha en formato ('YYYYMMDDHHMMSS') a un valor numérico para facilitar la comparación
+    Parametros:
+        - dateStr (const char*): Cadena que representa la fecha en formato ('YYYYMMDDHHMMSS')
+    Return: (long long) Valor numérico que representa la fecha para comparación (formato: YYYYMMDDHHMMSS)
+*/
 long long convertToComparableDate(const char* dateStr) {
     String dateString(dateStr);
     
@@ -30,7 +44,7 @@ long long convertToComparableDate(const char* dateStr) {
     int monthNum = monthToNumber(month.c_str());
     
     size_t dayStart = 3;
-    while (dayStart < dateString.length() && dateString[dayStart] == ' ') {
+    while (dayStart < dateString.length() && dateString[dayStart] == ' ') { 
         dayStart++;
     }
     

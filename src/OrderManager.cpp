@@ -7,11 +7,25 @@
 #include <cstdlib>
 
 
-OrderManager::OrderManager() : orderCount(0) {
-    
+/*
+    Created by Gustavo Gonzalez Ramos 
+    funcion: OrderManager (Constructor)
+    Descripcion: Inicializa un objeto OrderManager con un contador de órdenes en 0
+    Parametros: Ninguno
+    Return: N/A
+*/
+OrderManager::OrderManager() : orderCount(0) {  
 }
 
-bool OrderManager:: loadOrders(const String & filename) {
+/*
+    Created by Gustavo Gonzalez Ramos
+    funcion: loadOrders
+    Descripcion: Carga las órdenes desde un archivo al arreglo de órdenes
+    Parametros:
+        - filename (const String&): Ruta del archivo que contiene los datos de las órdenes
+    Return: (bool) true si se cargaron las órdenes correctamente, false en caso de error
+*/
+bool OrderManager::loadOrders(const String & filename) {
     std::ifstream file(filename);
     String line;
 
@@ -35,55 +49,63 @@ bool OrderManager:: loadOrders(const String & filename) {
 }
 
 
-Order OrderManager:: parseLine(String& line) {
-    String month = line.substr(0, 3);
+/*
+    Created by Gustavo Gonzalez Ramos
+    funcion: parseLine
+    Descripcion: Procesa una línea de texto que contiene información de una orden y la convierte en un objeto Order
+    Parametros:
+        - line (String&): Línea de texto con el formato "MMM DD HH:MM:SS Restaurant, Order, Price"
+    Return: (Order) Objeto Order creado a partir de los datos de la línea
+*/
+Order OrderManager::parseLine(String& line) {
+  String month = line.substr(0, 3);
+
   
-    
-    size_t day_start = 4;
-    size_t day_end = line.find_first_not_of("0123456789", day_start);
-    String day = line.substr(day_start, day_end - day_start);  
+  size_t day_start = 4;
+  size_t day_end = line.find_first_not_of("0123456789", day_start);
+  String day = line.substr(day_start, day_end - day_start);  
 
-    String time = line.substr(day_end + 1, 8);  
+  String time = line.substr(day_end + 1, 8);  
 
-    
-    size_t hour_end = time.find(":");
-    String hour = time.substr(0, hour_end);
-    
-    size_t minute_end = time.find(":", hour_end + 1);
-    String minute = time.substr(hour_end + 1, minute_end - hour_end - 1);
-    
-    String second = time.substr(minute_end + 1);
+  
+  size_t hour_end = time.find(":");
+  String hour = time.substr(0, hour_end);
+  
+  size_t minute_end = time.find(":", hour_end + 1);
+  String minute = time.substr(hour_end + 1, minute_end - hour_end - 1);
+  
+  String second = time.substr(minute_end + 1);
 
-    
-    if (hour.length() == 1) hour = "0" + hour;
-    if (minute.length() == 1) minute = "0" + minute;
-    if (second.length() == 1) second = "0" + second;
+  
+  if (hour.length() == 1) hour = "0" + hour;
+  if (minute.length() == 1) minute = "0" + minute;
+  if (second.length() == 1) second = "0" + second;
 
-    
-    String formattedTime = hour + ":" + minute + ":" + second;
+  
+  String formattedTime = hour + ":" + minute + ":" + second;
 
-    String date = month + " " + day + " " + formattedTime;
+  String date = month + " " + day + " " + formattedTime;
 
-    
-    size_t r_pos = line.find("R:") + 2;  
-    size_t o_pos = line.find("O:");
+  
+  size_t r_pos = line.find("R:") + 2;  
+  size_t o_pos = line.find("O:");
 
-    
-    String restaurant = line.substr(r_pos, o_pos - r_pos);  
+  
+  String restaurant = line.substr(r_pos, o_pos - r_pos);  
 
-    
-    size_t dish_start = o_pos + 2;
-    size_t price_start = line.find("(") + 1;  
-    size_t price_end = line.find(")");  
+  
+  size_t dish_start = o_pos + 2;
+  size_t price_start = line.find("(") + 1;  
+  size_t price_end = line.find(")");  
 
 
-    String order = line.substr(dish_start, price_start - dish_start - 1);  
+  String order = line.substr(dish_start, price_start - dish_start - 1);  
 
-    
-    int price = std::atoi(line.substr(price_start, price_end - price_start));
+  
+  int price = std::atoi(line.substr(price_start, price_end - price_start));
 
-    long long numberDate = convertToComparableDate(date.c_str());
-    return {date, restaurant, order, price, numberDate};
+  long long numberDate = convertToComparableDate(date.c_str());
+  return {date, restaurant, order, price, numberDate};
 }
 
 
@@ -141,6 +163,16 @@ int OrderManager::findOrder(const long long val,const bool exact = true,const bo
 
 
 
+/*
+    Created by Gustavo Gonzalez Ramos
+    funcion: partition
+    Descripcion: Función auxiliar para el algoritmo QuickSort que particiona el arreglo alrededor de un pivote
+    Parametros:
+        - arr (Order*): Arreglo de objetos Order a particionar
+        - low (int): Índice inicial del subarreglo a particionar
+        - high (int): Índice final del subarreglo a particionar (se usa como pivote)
+    Return: (int) Índice de la posición final del pivote después de la partición
+*/
 int OrderManager::partition(Order* arr, int low, int high) {
     
     long long pivot = arr[high].getNumberDate();
@@ -165,6 +197,16 @@ int OrderManager::partition(Order* arr, int low, int high) {
 }
 
 
+/*
+    Created by Gustavo Gonzalez Ramos
+    funcion: quickSort
+    Descripcion: Implementa el algoritmo de ordenamiento QuickSort para ordenar un arreglo de objetos Order
+    Parametros:
+        - arr (Order*): Arreglo de objetos Order a ordenar
+        - low (int): Índice inicial del subarreglo a ordenar
+        - high (int): Índice final del subarreglo a ordenar
+    Return: N/A
+*/
 void OrderManager::quickSort(Order* arr, int low, int high) {
     if (low < high) {
         
@@ -176,6 +218,13 @@ void OrderManager::quickSort(Order* arr, int low, int high) {
     }
 }
 
+/*
+    Created by Gustavo Gonzalez Ramos
+    funcion: sortOrders
+    Descripcion: Ordena el arreglo de órdenes utilizando el algoritmo QuickSort
+    Parametros: Ninguno
+    Return: N/A
+*/
 void OrderManager::sortOrders() {
     quickSort(orders, 0, orderCount - 1);  
 }
