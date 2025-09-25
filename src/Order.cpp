@@ -9,6 +9,7 @@
     Descripcion: Inicializa un objeto Order con valores predeterminados
     Parametros: Ninguno
     Return: N/A
+    Complejidad: O(1)
 */
 Order::Order() {
     date = "";
@@ -28,6 +29,7 @@ Order::Order() {
         - price (int): Precio del pedido
         - numberDate (long long): Representación numérica de la fecha para ordenamiento
     Return: N/A
+    Complejidad: O(1)
 */
 Order::Order(String date, String restaurant, String order, int price, long long numberDate)
     : date(date), restaurant(restaurant), order(order), price(price),numberDate(numberDate) {
@@ -40,6 +42,7 @@ Order::Order(String date, String restaurant, String order, int price, long long 
     Descripcion: Obtiene la fecha del pedido
     Parametros: Ninguno
     Return: (String) Fecha del pedido
+    Complejidad: O(1)
 */
 String Order::getDate() const{
     return this -> date;
@@ -51,6 +54,7 @@ String Order::getDate() const{
     Descripcion: Obtiene el nombre del restaurante
     Parametros: Ninguno
     Return: (String) Nombre del restaurante
+    Complejidad: O(1)
 */
 String Order::getRestaurant() const{
     return this -> restaurant;
@@ -62,6 +66,7 @@ String Order::getRestaurant() const{
     Descripcion: Obtiene la descripción del pedido
     Parametros: Ninguno
     Return: (String) Descripción del pedido
+    Complejidad: O(1)
 */
 String Order::getOrder() const{
     return this ->  order;
@@ -73,6 +78,7 @@ String Order::getOrder() const{
     Descripcion: Obtiene el precio del pedido
     Parametros: Ninguno
     Return: (int) Precio del pedido
+    Complejidad: O(1)
 */
 int Order::getPrice() const{
     return this -> price;
@@ -84,6 +90,7 @@ int Order::getPrice() const{
     Descripcion: Obtiene la representación numérica de la fecha para ordenamiento
     Parametros: Ninguno
     Return: (long long) Valor numérico de la fecha (formato: YYYYMMDDHHMMSS)
+    Complejidad: O(1)
 */
 long long Order::getNumberDate() const{
     return this -> numberDate;

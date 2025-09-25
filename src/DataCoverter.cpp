@@ -9,6 +9,7 @@
     Parametros:
         - month (const char*): Cadena que representa el nombre del mes 
     Return: (int) Numero del mes (1 para Enero, 2 para Febrero, etc.)
+    Complejidad: O(1)
 */
 int monthToNumber( const char* month) {
     if (month[0] == 'J') {
@@ -35,6 +36,7 @@ int monthToNumber( const char* month) {
     Parametros:
         - dateStr (const char*): Cadena que representa la fecha en formato ('YYYYMMDDHHMMSS')
     Return: (long long) Valor numérico que representa la fecha para comparación (formato: YYYYMMDDHHMMSS)
+    Complejidad: O(n) 
 */
 long long convertToComparableDate(const char* dateStr) {
     String dateString(dateStr);
