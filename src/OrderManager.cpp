@@ -111,7 +111,18 @@ Order OrderManager::parseLine(String& line) {
     return {date, restaurant, order, price, numberDate};
 }
 
-
+/*
+    Created by Brian R. Gómez Martínez
+    funcion: findOrder
+    Descripcion: Realiza una búsqueda binaria para encontrar una orden por su numberDate.
+                 Puede encontrar una coincidencia exacta o la más cercana, y la primera o última en caso de duplicados.
+    Parametros:
+        - val (long long): Número de identificación de la orden (numberDate) a buscar.
+        - exact (bool): Si es true, solo devuelve coincidencias exactas. Si es false, devuelve el índice del elemento más cercano.
+        - last (bool): Si hay múltiples coincidencias, true devuelve el índice de la última y false el de la primera.
+    Return: (int) Índice de la orden encontrada. Devuelve -1 si no se encuentra y 'exact' es true.
+    Complejidad: O(log n + k), donde n es el número de órdenes y k el número de duplicados consecutivos. En el peor caso (muchos duplicados) se aproxima a O(n).
+*/
 int OrderManager::findOrder(const long long val,const bool exact = true,const bool last = false) const {
   const int n = orderCount;
   if (val < orders[0].getNumberDate()) return exact ?  -1 :  0;
@@ -227,6 +238,18 @@ void OrderManager::sortOrders() {
     quickSort(orders, 0, orderCount - 1);  
 }
 
+/*
+    Created by Brian R. Gómez Martínez
+    funcion: filterOrdersByDate
+    Descripcion: Filtra y muestra en consola las órdenes que se encuentran dentro de un rango de fechas específico.
+                 Utiliza búsqueda binaria para encontrar los límites del rango de manera eficiente.
+    Parametros:
+        - startDate (const String &): Fecha de inicio del filtro. Formato "YY/MM/DD HH:MM:SS" o similar.
+        - endDate (const String &): Fecha de fin del filtro. Si se omite la hora, se considera hasta las 23:59:59 de ese día.
+        - details (const bool): Si es true, imprime un conteo de los resultados encontrados antes de listarlos.
+    Return: (void)
+    Complejidad: O(log n + m), donde n es el total de órdenes y m es el número de órdenes dentro del rango de fechas.
+*/
 void OrderManager::filterOrdersByDate(const String &startDate,const String &endDate, const bool details) {
   if (startDate.length() < 5) throw std::invalid_argument("Invalid start date");
   if (endDate.length() < 5) throw std::invalid_argument("Invalid end date");
