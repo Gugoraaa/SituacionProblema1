@@ -96,3 +96,21 @@ long long Order::getNumberDate() const{
     return this -> numberDate;
 }
 
+// Operadores "<>" Sobrecargados
+
+bool Order::operator<(const Order Orden1) const {
+    if (this->numberDate > Orden1.numberDate)
+    {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+bool Order::operator>(const Order Orden1) const {
+    if (this->numberDate < Orden1.numberDate) {
+      return true;
+    } else {
+      return false;
+    }
+}

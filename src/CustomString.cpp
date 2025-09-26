@@ -329,11 +329,26 @@ bool String::operator==(const char *chars) const {
   return *this == String(chars);
 }
 
-
+/*
+    funcion: operator!=
+    Descripcion: Compara si dos objetos String son distintos.
+    Parametros:
+        - other (const String&): El otro objeto String para la comparación.
+    Return: (bool) False si las cadenas son iguales, true en caso contrario.
+    Complejidad: O(n), donde n es la longitud de las cadenas.
+*/
 bool String::operator!=(const String &other) const {
   return !(*this == other);
 }
 
+/*
+    funcion: operator!= (sobrecarga con const char*)
+    Descripcion: Compara si un String es distinta a una cadena estilo C.
+    Parametros:
+        - chars (const char*): La cadena de caracteres para la comparación.
+    Return: (bool) False si las cadenas son iguales, true en caso contrario.
+    Complejidad: O(n), donde n es la longitud de las cadenas.
+*/
 bool String::operator!=(const char *chars) const {
   return !(*this == chars);
 }

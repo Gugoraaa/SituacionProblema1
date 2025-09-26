@@ -4,13 +4,18 @@
 
 class OrderManager {
 public:
+    // Constructor sin parametros
     OrderManager();
+
+    // Metodos para el manejo del contenido de los archivos de texto
     bool loadOrders(const String & filename);
     void sortOrders();
     void filterOrdersByDate(const String & startDate,const String & endDate, bool details = true);
     void filterOrdersByDate(const char *startDate, const char *endDate, bool details = true);
     void displayOrders(size_t from, size_t count);
     // void saveToFile( String& filename) ;
+
+    // Metodo para mostrar las ordenes
     void printOrders() const;
 
 private:
