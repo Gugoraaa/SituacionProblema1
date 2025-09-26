@@ -17,9 +17,14 @@ private:
 
 public:
     static const unsigned int npos;
+
+    // Constructor sin parametros
     String();
+
+    // Constructores con parametros
     String(const char *a);
     String(const String &other);
+
     size_t length() const;
     unsigned int find(const String& sub, unsigned int pos = 0) const;
     unsigned int find(const char& sub, unsigned int pos = 0) const;
@@ -28,6 +33,8 @@ public:
     String substr(size_t from,size_t count) const;
     String substr(size_t from) const;
     const char* c_str() const;
+
+    // Operadores sobrecargados
     const char &operator[](size_t index) const;
     String &operator=(const char *str);
     String &operator=(const String &other);
@@ -36,6 +43,8 @@ public:
     explicit operator bool() const;
     String operator+(const String &other) const;
     friend std::ostream &operator<<(std::ostream &os, const String &str);
+
+    // Destructor de la clase
     ~String();
 
     char* begin();

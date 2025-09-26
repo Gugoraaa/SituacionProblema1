@@ -1,0 +1,54 @@
+Jun 7 12:25:2  La Trattoria Bella  Goulash Hungaro 382
+Jun 7 12:29:34 The Harvest House  Ribeye Steak 449
+Jun 7 12:41:59 The Bee  Sopa de Verduras 130
+Jun 7 12:43:26 The Cafe Lounge  Carne Asada 275
+Jun 7 12:52:1  Harbor Lights Restaurant  Sashimi de Atun 317
+Jun 7 13:08:34  La Brasserie Parisienne  Falafel con Hummus 263
+Jun 7 13:16:51 The Rustic Kitchen  Beef Stroganoff 439
+Jun 7 13:31:56 The elegant eatery  Queso Fundido 154
+Jun 7 13:55:22 The Taste  Pollo Alfredo 261
+Jun 7 14:07:27  La Cocina de la Abuela  Coq au Vin 415
+Jun 7 14:12:33 El Restaurante de Ana  Arepas Rellenas 141
+Jun 7 14:20:50 The Old Town  Hummus con Pita 162
+Jun 7 14:44:33 The Trendy Table  Pizza Margherita 291
+Jun 7 15:17:15 The Artisan Table  Arroz Frito 249
+Jun 7 15:24:17 La Terraza del Chef  Fondue de Queso 445
+Jun 7 15:34:11 The Mediterranean Table  Beef Stroganoff 394
+Jun 7 15:40:46 El Cafe del Chef Pablo  Chop Suey 279
+Jun 7 16:03:37  La Internacional  Panuchos Yucatecos 273
+Jun 7 16:25:16 El Cafe del Valle  Pad See ew 274
+Jun 7 16:42:15 El Marisco Feliz  Churrasco 416
+Jun 7 16:56:56 El Patio Andaluz  Pizza de Pepperoni 284
+Jun 7 17:16:17 El Sazon Mexicano  Pato a la Naranja 281
+Jun 7 17:48:4  The American  Mousse de Chocolate 137
+Jun 7 17:48:57 Tierra y Mar  Huevos Benedictinos 266
+Jun 7 17:56:18 The Gourmet Deli  Dim Sum 267
+Jun 7 18:06:14  Harbor Lights Restaurant  Osso Buco 478
+Jun 7 18:10:22 Brunch & Mimosas  Salmon Gravlax 286
+Jun 7 18:13:48 La Comida Casera  Sopa de Mariscos 449
+Jun 7 18:14:3  El Rincon del Gourmet  Goulash Hungaro 382
+Jun 7 18:44:45 El Mar  Raviolis de espinaca 261
+Jun 7 19:03:49  The Old Mill  Pollo a la Cacciatora 315
+Jun 7 19:22:22 The Local Bistro  Pollo con espinacas 277
+Jun 7 19:23:15 El Cafe de Lola  Pasta con Mariscos 440
+Jun 7 19:43:46 The Caffeine Spot  Dim Sum 250
+Jun 7 19:45:27 La Comida Casera  Tacos de Birria 298
+Jun 7 20:38:32 The Southern Grill  Tamales de elote 135
+Jun 7 20:51:17 The Countryside  Pad Thai 272
+Jun 7 20:56:4  The Urban Table  Beef Wellington 468
+Jun 7 21:31:8  The Rustic Spoon  Arrachera Asada 290
+Jun 7 22:51:28 The Classic  ensalada Cesar 298
+Jun 8 12:02:11  Sabores del Mundo  Kebab de Cordero 255
+Jun 8 12:06:41  Here and Now  Fideua 285
+Jun 8 12:14:36 Marthas  Salmon a la Parrilla 265
+Jun 8 13:04:31  The Rustic Spoon  Pasta a la Puttanesca 281
+Jun 8 13:07:31  The Main  Yakitori de Pollo 294
+Jun 8 13:12:28 Los Sabores de Aqui  Tortilla espanola 262
+Jun 8 13:14:44 El Rincon  Arroz con Leche 136
+Jun 8 13:45:35 El Restaurante de la esquina  Cordero al Romero 441
+Jun 8 14:20:20 El Mar  Croquetas de Jamon 132
+Jun 8 14:21:12 La esquina del Chef  escargots a la Bourguignonne 267
+Jun 8 14:34:52 El Asador de la Abuela  Fondue de Queso 388
+Jun 8 14:36:33 The Urban Bistro  Mariscos al Ajillo 294
+Jun 8 14:38:40 The Corner Place  Tacos de Pescado 284
+Jun 8 15:36:28 Here and Now  Filete de Res 435
