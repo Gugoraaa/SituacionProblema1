@@ -26,6 +26,20 @@ using namespace std;
  *
  * */
 
+ /*
+    Created by Axel Omar Lugo Aguilera
+    funcion: main
+    Descripcion: Función principal del programa. 
+                 Carga los registros desde un archivo, las ordena cronológicamente, 
+                 muestra resultados en consola y permite búsquedas por rango de fechas.
+                 También guarda los resultados en archivos de salida.
+    Parametros: Ninguno
+    Return: (int) 0 si el programa finaliza correctamente, 1 en caso de error.
+    Complejidad: O(n log n + m), 
+                 donde n es el número total de órdenes (por QuickSort y búsqueda binaria) 
+                 y m el número de órdenes dentro del rango consultado.
+*/
+
 int main() {
 
   OrderManager manager;
@@ -39,7 +53,7 @@ int main() {
   manager.sortOrders();
 
   cout << "---- Primeros 10 registros ----- "<< endl;
-  manager.printOrders();
+  manager.printOrders(); 
 
   {
     ofstream out("salida.txt");
@@ -47,11 +61,11 @@ int main() {
       cerr << "Error: no se pudo abrir salida.txt"<< endl;
       return 1;
     }
-    std::streambuf* old_buf = cout.rdbuf(out.rdbuf());
+    std::streambuf* old_buf = cout.rdbuf(out.rdbuf()); 
 
     manager.filterOrdersByDate("ene 1 00:00:00", "Dic 31 23:59:59",false);
 
-    cout.rdbuf(old_buf);
+    cout.rdbuf(old_buf); 
     cout << "\nArchivo 'salida.txt' ordenada "
             "completa.\n";
   }
@@ -67,7 +81,7 @@ int main() {
 
   cout << "\n--- Resultados dentro del rango ---" << endl;
   try {
-    manager.filterOrdersByDate(startDate, endDate,true);
+    manager.filterOrdersByDate(startDate, endDate,true); 
   } catch (const std::exception &ex) {
     cerr << "Error en la busqueda: " << ex.what() << endl;
     return 1;
