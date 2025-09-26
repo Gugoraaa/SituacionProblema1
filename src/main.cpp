@@ -29,7 +29,7 @@ int main() {
     }
     std::streambuf* old_buf = cout.rdbuf(out.rdbuf());
 
-    manager.filterOrdersByDate("Jan 1 00:00:00", "Dec 31 23:59:59",false);
+    manager.filterOrdersByDate("ene 1 00:00:00", "Dic 31 23:59:59",false);
 
     cout.rdbuf(old_buf);
     cout << "\nArchivo 'salida.txt' ordenada "

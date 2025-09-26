@@ -251,11 +251,23 @@ void OrderManager::sortOrders() {
     Complejidad: O(log n + m), donde n es el total de órdenes y m es el número de órdenes dentro del rango de fechas.
 */
 void OrderManager::filterOrdersByDate(const String &startDate,const String &endDate, const bool details) {
+  if (orderCount == 0) throw std::invalid_argument("No orders to filter");
   if (startDate.length() < 5) throw std::invalid_argument("Invalid start date");
   if (endDate.length() < 5) throw std::invalid_argument("Invalid end date");
+  String  startMonth = startDate.substr(0, 3);
+  if ( startMonth!= "ene" &&  startMonth != "Feb" &&  startMonth != "Mar" && startMonth != "Abr"
+    &&  startMonth != "May" &&  startMonth != "Jun" &&  startMonth != "Jul"
+    &&  startMonth != "Ago" &&  startMonth != "Sep" &&  startMonth != "Oct"
+    &&  startMonth != "Nov" &&  startMonth != "Dic") throw std::invalid_argument("Invalid start month. Trying using month: "+startMonth);
+  String  endMonth = endDate.substr(0, 3);
+  if ( endMonth!= "ene" &&  endMonth != "Feb" &&  endMonth != "Mar" && endMonth != "Abr"
+    &&  endMonth != "May" &&  endMonth != "Jun" &&  endMonth != "Jul"
+    &&  endMonth != "Ago" &&  endMonth != "Sep" &&  endMonth != "Oct"
+    &&  endMonth != "Nov" &&  endMonth != "Dic") throw std::invalid_argument("Invalid end month. Trying using month: "+endMonth);
   String finalEndDate;
   finalEndDate = (endDate.length() <= 6 && endDate.length() >= 5? endDate + " 23:59:59" : endDate);
   const long long start = convertToComparableDate(startDate.c_str()), end = convertToComparableDate(finalEndDate.c_str());
+  if (start > end) throw std::invalid_argument("Invalid date range");
   const int first = findOrder(start, false, false), last = findOrder(end,false,true);
   int count = last - first;
   if(details) std::cout << count << " results founded"<< std::endl;

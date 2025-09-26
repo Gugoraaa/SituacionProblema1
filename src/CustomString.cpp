@@ -329,6 +329,16 @@ bool String::operator==(const char *chars) const {
   return *this == String(chars);
 }
 
+
+bool String::operator!=(const String &other) const {
+  return !(*this == other);
+}
+
+bool String::operator!=(const char *chars) const {
+  return !(*this == chars);
+}
+
+
 /*
     funcion: operator bool
     Descripcion: Permite evaluar un objeto String en un contexto booleano.

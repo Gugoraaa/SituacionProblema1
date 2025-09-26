@@ -33,6 +33,8 @@ public:
     String &operator=(const String &other);
     bool operator==(const String &other) const;
     bool operator==(const char *chars) const;
+    bool operator!=(const String &other) const;
+    bool operator!=(const char *chars) const;
     explicit operator bool() const;
     String operator+(const String &other) const;
     friend std::ostream &operator<<(std::ostream &os, const String &str);

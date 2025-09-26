@@ -21,11 +21,12 @@ int monthToNumber( const char* month) {
         if (month[2] == 'r') return 3;
         else return 5; 
     } else if (month[0] == 'A') {
-        if (month[1] == 'r') return 4; 
+        if (month[2] == 'r') return 4;
         else return 8; 
     } else if (month[0] == 'S') return 9; 
     else if (month[0] == 'O') return 10; 
     else if (month[0] == 'N') return 11; 
+    else if (month[0] == 'e') return 1;
     else return 12;
 }
 
