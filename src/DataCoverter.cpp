@@ -11,23 +11,24 @@
     Return: (int) Numero del mes (1 para Enero, 2 para Febrero, etc.)
     Complejidad: O(1)
 */
-int monthToNumber( const char* month) {
-    if (month[0] == 'J') {
+int monthToNumber( const char* m) {
+  if (const String month = String(m).toLowerCase(); month[0] == 'j') {
         if (month[1] == 'a') return 1; 
         else if (month[2] == 'n') return 6; 
         else return 7; 
-    } else if (month[0] == 'F') return 2; 
-    else if (month[0] == 'M') {
+    } else
+      if (month[0] == 'f') return 2;
+      else if (month[0] == 'm') {
         if (month[2] == 'r') return 3;
-        else return 5; 
-    } else if (month[0] == 'A') {
+        else return 5;
+    } else if (month[0] == 'a') {
         if (month[2] == 'r') return 4;
-        else return 8; 
-    } else if (month[0] == 'S') return 9; 
-    else if (month[0] == 'O') return 10; 
-    else if (month[0] == 'N') return 11; 
-    else if (month[0] == 'e') return 1;
-    else return 12;
+        else return 8;
+    } else if (month[0] == 's') return 9;
+      else if (month[0] == 'o') return 10;
+      else if (month[0] == 'n') return 11;
+      else if (month[0] == 'e') return 1;
+      else return 12;
 }
 
 /*

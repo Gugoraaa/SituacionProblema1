@@ -145,10 +145,13 @@ int OrderManager::findOrder(const long long val,const bool exact = true,const bo
 
   if (!exact && findIndex == -1) {
     if (low != 0) {
-      const long long diff = abs(val - orders[low].getNumberDate());
-      if (const long long diff2 = abs(val - orders[low - 1].getNumberDate());
-          diff2 < diff) findIndex = low - 1;
-      else findIndex = low;
+      if (!last) {
+        while (val > orders[low].getNumberDate()) low++;
+        findIndex = low;
+      }else {
+          while (val < orders[low].getNumberDate()) low--;
+          findIndex = low;
+        }
     }else return 0;
   }else if (findIndex == -1) return -1;
 
@@ -252,25 +255,36 @@ void OrderManager::sortOrders() {
 */
 void OrderManager::filterOrdersByDate(const String &startDate,const String &endDate, const bool details) {
   if (orderCount == 0) throw std::invalid_argument("No orders to filter");
-  if (startDate.length() < 5) throw std::invalid_argument("Invalid start date");
-  if (endDate.length() < 5) throw std::invalid_argument("Invalid end date");
-  String  startMonth = startDate.substr(0, 3);
-  if ( startMonth!= "ene" &&  startMonth != "Feb" &&  startMonth != "Mar" && startMonth != "Abr"
-    &&  startMonth != "May" &&  startMonth != "Jun" &&  startMonth != "Jul"
-    &&  startMonth != "Ago" &&  startMonth != "Sep" &&  startMonth != "Oct"
-    &&  startMonth != "Nov" &&  startMonth != "Dic") throw std::invalid_argument("Invalid start month. Trying using month: "+startMonth);
-  String  endMonth = endDate.substr(0, 3);
-  if ( endMonth!= "ene" &&  endMonth != "Feb" &&  endMonth != "Mar" && endMonth != "Abr"
-    &&  endMonth != "May" &&  endMonth != "Jun" &&  endMonth != "Jul"
-    &&  endMonth != "Ago" &&  endMonth != "Sep" &&  endMonth != "Oct"
-    &&  endMonth != "Nov" &&  endMonth != "Dic") throw std::invalid_argument("Invalid end month. Trying using month: "+endMonth);
+  if (startDate.length() < 5) throw std::invalid_argument("Invalid start date format");
+  if (endDate.length() < 5) throw std::invalid_argument("Invalid end date format");
+
+  bool validStartMonth = false;
+  bool validEndMonth = false;
+  const String startMonth = startDate.substr(0, 3).toLowerCase();
+  const String endMonth = endDate.substr(0, 3).toLowerCase();
+  for (int i = 0; i < 12; i++) {
+    const String months[] = {"ene", "feb", "mar", "abr", "may", "jun",
+                             "jul", "ago", "sep", "oct", "nov", "dic"};
+    if (startMonth == months[i]) validStartMonth = true;
+    if (endMonth == months[i]) validEndMonth = true;
+    if (i == 11 ) (validEndMonth && validStartMonth) ? : throw std::invalid_argument("Invalid date parameters. Valid months: ene, feb, mar, abr, may, jun, jul, ago, sep, oct, nov, dic");
+  }
+
+
   String finalEndDate;
   finalEndDate = (endDate.length() <= 6 && endDate.length() >= 5? endDate + " 23:59:59" : endDate);
   const long long start = convertToComparableDate(startDate.c_str()), end = convertToComparableDate(finalEndDate.c_str());
+
   if (start > end) throw std::invalid_argument("Invalid date range");
+
   const int first = findOrder(start, false, false), last = findOrder(end,false,true);
-  int count = last - first;
-  if(details) std::cout << count << " results founded"<< std::endl;
+  if (first == -1 || last == -1) throw std::invalid_argument("No orders found");
+
+  int count;
+  if (first == last) count = 1;
+  else count = last - first + 1;
+
+  if(details) std::cout << count << " results found"<< std::endl;
   for (int i = first; i <= last; i++) {
     std::cout << orders[i].getDate() << " " << orders[i].getRestaurant() << " " << orders[i].getOrder() << " " << orders[i].getPrice() << std::endl;
   }

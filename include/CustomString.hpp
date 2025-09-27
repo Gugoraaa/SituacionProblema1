@@ -33,6 +33,8 @@ public:
     String substr(size_t from,size_t count) const;
     String substr(size_t from) const;
     const char* c_str() const;
+    String toUpperCase() const;
+    String toLowerCase() const;
 
     // Operadores sobrecargados
     const char &operator[](size_t index) const;

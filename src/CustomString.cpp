@@ -438,6 +438,57 @@ String operator+(const char* lhs, const String& rhs) {
     return String(lhs) + rhs;
 }
 
+/*
+    funcion: toUpperCase
+    Descripcion: Convierte todos los caracteres alfabéticos de la cadena a mayúsculas.
+    Parametros: Ninguno
+    Return: (String) Un nuevo objeto String con todos los caracteres en mayúsculas.
+    Complejidad: O(n), donde n es la longitud de la cadena.
+*/
+String String::toUpperCase() const {
+    char* buffer = new char[len + 1];
+    
+    for (unsigned int i = 0; i < len; ++i) {
+        char c = value[i];
+        
+        if (c >= 'a' && c <= 'z') {
+            buffer[i] = c - 'a' + 'A';
+        } else {
+            buffer[i] = c;
+        }
+    }
+    buffer[len] = '\0';
+    
+    String result(buffer);
+    delete[] buffer;
+    return result;
+}
+
+/*
+    funcion: toLowerCase
+    Descripcion: Convierte todos los caracteres alfabéticos de la cadena a minúsculas.
+    Parametros: Ninguno
+    Return: (String) Un nuevo objeto String con todos los caracteres en minúsculas.
+    Complejidad: O(n), donde n es la longitud de la cadena.
+*/
+String String::toLowerCase() const {
+    char* buffer = new char[len + 1];
+    
+    for (unsigned int i = 0; i < len; ++i) {
+        char c = value[i];
+        if (c >= 'A' && c <= 'Z') {
+            buffer[i] = c - 'A' + 'a';
+        } else {
+            buffer[i] = c;
+        }
+    }
+    buffer[len] = '\0';
+    
+    String result(buffer);
+    delete[] buffer;
+    return result;
+}
+
 // --- Iteradores ---
 char* String::begin() {
     return value;
