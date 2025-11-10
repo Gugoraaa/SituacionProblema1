@@ -55,8 +55,49 @@ int main() {
   cout << "---- Primeros 10 registros ----- "<< endl;
   manager.printOrders(); 
 
-  // cout << "---- Platos ----- "<< endl;
-  // manager.printDishes();
+  // Construir el BST de platillos
+  cout << "\n---------------------------------------------------" << endl;
+  cout << "------ Análisis de Platillos con BST ------" << endl;
+  cout << "---------------------------------------------------" << endl;
+  cout << "\nConstruyendo BST de platillos..." << endl;
+  manager.buildDishBST();
+  cout << "BST construido exitosamente!" << endl;
+  
+  bool continuarAnalisis = true;
+  while (continuarAnalisis) {
+    cout << "\n----- Menú de Análisis de Platillos -----" << endl;
+    cout << "1. Mostrar platillo(s) más solicitado(s)" << endl;
+    cout << "2. Mostrar Top N platillos más solicitados" << endl;
+    cout << "3. Mostrar BST completo (orden ascendente)" << endl;
+    cout << "4. Mostrar BST completo (orden descendente)" << endl;
+    cout << "5. Continuar con búsqueda por fechas" << endl;
+    cout << "Selecciona una opción (1-5): ";
+    
+    String opcionAnalisis;
+    getline(cin, opcionAnalisis);
+    
+    if (opcionAnalisis == "1") {
+      manager.findAndPrintMostOrderedDishes();
+    } else if (opcionAnalisis == "2") {
+      cout << "\nCuantos platillos deseas ver? ";
+      String nStr;
+      getline(cin, nStr);
+      int n = std::atoi(nStr.c_str());
+      manager.findAndPrintTopNDishes(n);
+    } else if (opcionAnalisis == "3") {
+      manager.printDishBST();
+    } else if (opcionAnalisis == "4") {
+      manager.printDishBSTReverse();
+    } else if (opcionAnalisis == "5") {
+      continuarAnalisis = false;
+    } else {
+      cout << "Opción no válida. Intenta de nuevo." << endl;
+    }
+  }
+
+  cout << "\n---------------------------------------------------" << endl;
+  cout << "------ Generación de Archivo Ordenado ------" << endl;
+  cout << "---------------------------------------------------" << endl;
 
   {
     ofstream out("salida.txt");

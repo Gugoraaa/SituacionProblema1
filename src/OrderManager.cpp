@@ -158,7 +158,7 @@ int OrderManager::findOrder(const long long val,const bool exact = true,const bo
           while (val < orders[low].getNumberDate()) low--;
           findIndex = low;
         }
-    }else return 0;
+    }else return -1;
   }else if (findIndex == -1) return -1;
 
   if (last) {
@@ -346,3 +346,138 @@ Dish* OrderManager::findDish(String name) {
     }
     return nullptr;
 }
+
+/*
+    funcion: buildDishBST
+    Descripcion: Construye un árbol binario de búsqueda (BST) con todos los platillos del sistema.
+                 Organiza los platillos por número de pedidos, permitiendo encontrar eficientemente
+                 los platillos más solicitados. Maneja correctamente el caso de múltiples platillos
+                 con la misma cantidad de pedidos.
+    Parametros: Ninguno
+    Return: N/A
+    Complejidad: O(n * h), donde n es el número de platillos y h es la altura del BST.
+*/
+void OrderManager::buildDishBST() {
+    for (int i = 0; i < dishesCount; ++i) {
+        dishBST.insert(dishes[i]);
+    }
+}
+
+/*
+    funcion: printDishBST
+    Descripcion: Imprime todos los platillos del BST en orden ascendente por número de pedidos.
+    Parametros: Ninguno
+    Return: N/A
+    Complejidad: O(n * m), donde n es el número de nodos en el BST y m es el promedio de platillos por nodo.
+*/
+void OrderManager::printDishBST() const {
+    std::cout << "\n----- Platillos organizados por cantidad de pedidos (BST - Ascendente) -----" << std::endl;
+    dishBST.printInOrder();
+    std::cout << "----------------------------------------------------------------------------\n" << std::endl;
+}
+
+/*
+    funcion: printDishBSTReverse
+    Descripcion: Imprime todos los platillos del BST en orden descendente por número de pedidos.
+                 Útil para ver los platillos más populares primero.
+    Parametros: Ninguno
+    Return: N/A
+    Complejidad: O(n * m), donde n es el número de nodos en el BST y m es el promedio de platillos por nodo.
+*/
+void OrderManager::printDishBSTReverse() const {
+    std::cout << "\n----- Platillos organizados por cantidad de pedidos (BST - Descendente) -----" << std::endl;
+    dishBST.printInReverseOrder();
+    std::cout << "----------------------------------------------------------------------------\n" << std::endl;
+}
+
+/*
+    funcion: findAndPrintMostOrderedDishes
+    Descripcion: Encuentra e imprime todos los platillos con el mayor número de pedidos.
+                 Maneja correctamente el caso donde múltiples platillos tienen la misma
+                 cantidad máxima de pedidos (empates).
+    Parametros: Ninguno
+    Return: N/A
+    Complejidad: O(h + k), donde h es la altura del BST y k es el número total de platillos
+                 con el conteo máximo de pedidos.
+*/
+void OrderManager::findAndPrintMostOrderedDishes() const {
+    Dish* mostOrdered = nullptr;
+    int count = 0;
+    
+    dishBST.findMostOrdered(mostOrdered, count);
+    
+    if (count == 0) {
+        std::cout << "No hay platillos registrados." << std::endl;
+        return;
+    }
+    
+    std::cout << "\n----- Platillo(s) con más pedidos -----" << std::endl;
+    std::cout << "Cantidad de pedidos: " << mostOrdered[0].getTotalOrders() << std::endl;
+    
+    if (count == 1) {
+        std::cout << "Platillo más solicitado: " << mostOrdered[0].getName() << std::endl;
+    } else {
+        std::cout << "Los siguientes " << count << " platillos tienen la misma cantidad de pedidos:" << std::endl;
+        for (int i = 0; i < count; ++i) {
+            std::cout << "  " << (i + 1) << ". " << mostOrdered[i].getName() << std::endl;
+        }
+    }
+    std::cout << "---------------------------------------------------\n" << std::endl;
+    
+    // Liberar la memoria asignada por findMostOrdered
+    delete[] mostOrdered;
+}
+
+/*
+    funcion: findAndPrintTopNDishes
+    Descripcion: Encuentra e imprime los N platillos con más pedidos, en orden descendente.
+                 Si hay empates en la posición N, incluye todos los platillos con ese número de pedidos.
+                 Esta función es útil para obtener un ranking de los platillos más populares.
+    Parametros:
+        - n (int): Número de platillos a mostrar (aproximado si hay empates).
+    Return: N/A
+    Complejidad: O(h + k), donde h es la altura del BST y k es el número de platillos recolectados.
+*/
+void OrderManager::findAndPrintTopNDishes(int n) const {
+    if (n <= 0) {
+        std::cout << "El número de platillos debe ser mayor que 0." << std::endl;
+        return;
+    }
+    
+    Dish* topDishes = nullptr;
+    int count = 0;
+    
+    dishBST.getTopNDishes(n, topDishes, count);
+    
+    if (count == 0) {
+        std::cout << "No hay platillos registrados." << std::endl;
+        return;
+    }
+    
+    std::cout << "\n----- Top " << n << " Platillos Más Solicitados -----" << std::endl;
+    std::cout << "Se encontraron " << count << " platillos" << std::endl;
+    std::cout << "---------------------------------------------------" << std::endl;
+    
+    int currentRank = 1;
+    int previousOrders = -1;
+    
+    for (int i = 0; i < count; ++i) {
+        int currentOrders = topDishes[i].getTotalOrders();
+        
+        // Si el número de pedidos cambió, actualizar el ranking
+        if (currentOrders != previousOrders) {
+            currentRank = i + 1;
+            previousOrders = currentOrders;
+        }
+        
+        std::cout << currentRank << ". " << topDishes[i].getName() 
+                  << " (" << currentOrders << " pedidos)" << std::endl;
+    }
+    
+    std::cout << "---------------------------------------------------\n" << std::endl;
+    
+    // Liberar la memoria asignada por getTopNDishes
+    delete[] topDishes;
+}
+
+

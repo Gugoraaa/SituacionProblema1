@@ -2,6 +2,7 @@
 #define ORDERMANAGER_HPP
 #include <Order.hpp>
 #include <Dish.hpp>
+#include <DishBST.hpp>
 
 class OrderManager {
 public:
@@ -23,6 +24,13 @@ public:
     void addDish(String name);
     Dish* findDish(String name);
     void printDishes() const;
+    
+    // Métodos para el BST de platillos
+    void buildDishBST();
+    void printDishBST() const;
+    void printDishBSTReverse() const;
+    void findAndPrintMostOrderedDishes() const;
+    void findAndPrintTopNDishes(int n) const;
 private:
     Order parseLine(String& line);
     int findOrder(long long val,bool exact,bool last) const;
@@ -30,6 +38,7 @@ private:
     static const int MAX_ORDERS = 11000; 
     Order orders[MAX_ORDERS]; 
     Dish dishes[MAX_ORDERS];
+    DishBST dishBST;
     int partition(Order* arr, int low, int high);
     void quickSort(Order* arr, int low, int high);
     int dishesCount = 0;
