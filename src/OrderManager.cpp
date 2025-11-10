@@ -108,6 +108,12 @@ Order OrderManager::parseLine(String& line) {
     int price = std::atoi(line.substr(price_start, price_end - price_start));
 
     long long numberDate = convertToComparableDate(date.c_str());
+
+    if (Dish* dish = findDish(order)) {
+        dish->addOrder();
+    } else {
+        addDish(order);
+    }
     return {date, restaurant, order, price, numberDate};
 }
 
@@ -314,4 +320,29 @@ void OrderManager::printOrders() const {
         std::cout << "  Date (Comparable): " << orders[i].getNumberDate() << std::endl;
         std::cout << "----------------------------------------" << std::endl;
     }
+}
+
+void OrderManager::printDishes() const {
+    for (int i = 0; i < dishesCount; ++i) {
+        std::cout << "Dish " << (i + 1) << ": " << std::endl;
+        std::cout << "  Name: " << dishes[i].getName() << std::endl;
+        std::cout << "  Total Orders: " << dishes[i].getTotalOrders() << std::endl;
+        std::cout << "----------------------------------------" << std::endl;
+    }
+}
+
+
+void OrderManager::addDish(String name) {
+    if (dishesCount >= MAX_ORDERS) throw std::overflow_error("Maximum number of dishes reached");
+    Dish dish = Dish(name);
+    dishes[dishesCount] = dish;
+    dishes[dishesCount].addOrder();
+    ++dishesCount;
+}
+
+Dish* OrderManager::findDish(String name) {
+    for (int i = 0; i < dishesCount; ++i) {
+        if (dishes[i].getName() == name) return &dishes[i];
+    }
+    return nullptr;
 }

@@ -1,6 +1,7 @@
 #ifndef ORDERMANAGER_HPP
 #define ORDERMANAGER_HPP
 #include <Order.hpp>
+#include <Dish.hpp>
 
 class OrderManager {
 public:
@@ -18,14 +19,21 @@ public:
     // Metodo para mostrar las ordenes
     void printOrders() const;
 
+    //metodos para agregar dishes 
+    void addDish(String name);
+    Dish* findDish(String name);
+    void printDishes() const;
 private:
     Order parseLine(String& line);
     int findOrder(long long val,bool exact,bool last) const;
     int orderCount = 0;
     static const int MAX_ORDERS = 11000; 
     Order orders[MAX_ORDERS]; 
+    Dish dishes[MAX_ORDERS];
     int partition(Order* arr, int low, int high);
     void quickSort(Order* arr, int low, int high);
+    int dishesCount = 0;
+    
 
 };
 

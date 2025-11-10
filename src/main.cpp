@@ -55,6 +55,9 @@ int main() {
   cout << "---- Primeros 10 registros ----- "<< endl;
   manager.printOrders(); 
 
+  // cout << "---- Platos ----- "<< endl;
+  // manager.printDishes();
+
   {
     ofstream out("salida.txt");
     if (!out.is_open()) {
