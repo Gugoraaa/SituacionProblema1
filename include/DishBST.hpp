@@ -42,17 +42,27 @@ public:
     void printInReverseOrder() const;
     int getMaxOrderCount() const;
     void getTopNDishes(int n, Dish*& resultDishes, int& resultCount) const;
+    void showStatistics() const;
+    void printNodes() const;
 
 private:
     DishNode* root;
 
     DishNode* insertNode(DishNode* node, const Dish& dish);
     void deleteTree(DishNode* node);
+    void balanceWholeTree(DishNode*& node);
+    void balanceSubtree(DishNode*& node);
+    void rotateLeft(DishNode*& node);
+    void rotateRight(DishNode*& node);
     void printInOrderHelper(DishNode* node) const;
     void printInReverseOrderHelper(DishNode* node) const;
+    int getHeight(DishNode* node) const;
     int findMaxOrderCount(DishNode* node) const;
+    int getBalanceFactor(DishNode* node) const;
     void collectDishesByCount(DishNode* node, int targetCount, Dish*& resultDishes, int& resultCount) const;
     void collectTopNDishes(DishNode* node, int& remaining, Dish*& resultDishes, int& resultCount) const;
+    void printNodeHelper(DishNode* node) const;
+
 };
 
 #endif // DISHBST_HPP

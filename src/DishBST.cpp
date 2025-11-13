@@ -107,6 +107,7 @@ void DishBST::deleteTree(DishNode* node) {
 */
 void DishBST::insert(const Dish& dish) {
     root = insertNode(root, dish);
+    this->balanceWholeTree(root);
 }
 
 /*
@@ -132,7 +133,6 @@ DishNode* DishBST::insertNode(DishNode* node, const Dish& dish) {
     } else {
         node->right = insertNode(node->right, dish);
     }
-    
     return node;
 }
 
@@ -355,5 +355,84 @@ void DishBST::collectTopNDishes(DishNode* node, int& remaining, Dish*& resultDis
     
     // Luego visitar el subárbol izquierdo (valores menores)
     collectTopNDishes(node->left, remaining, resultDishes, resultCount);
+}
+
+int DishBST::getHeight(DishNode *node) const {
+    if (node == nullptr) return 0;
+    const int leftHeight = getHeight(node->left);
+    const int rightHeight = getHeight(node->right);
+    return 1 + (leftHeight > rightHeight ? leftHeight : rightHeight);
+}
+
+void DishBST::balanceWholeTree(DishNode*& node){
+  if (node == nullptr) return;
+  balanceWholeTree(node->left);
+  balanceWholeTree(node->right);
+  const int balance = getBalanceFactor(node);
+
+  if (balance > 1) {
+      if (node->left != nullptr && getBalanceFactor(node->left) < 0) {
+          rotateLeft(node->left);
+      }
+      rotateRight(node);
+  } else if (balance < -1) {
+      if (node->right != nullptr && getBalanceFactor(node->right) > 0) {
+          rotateRight(node->right);
+      }
+      rotateLeft(node);
+  }
+}
+
+void DishBST::balanceSubtree(DishNode*& node) {
+  if (node == nullptr) return;
+  const int balance = getBalanceFactor(node);
+
+  if (balance > 1) {
+    if (node->left != nullptr && getBalanceFactor(node->left) < 0) {
+      rotateLeft(node->left);
+    }
+    rotateRight(node);
+  } else if (balance < -1) {
+    if (node->right != nullptr && getBalanceFactor(node->right) > 0) {
+      rotateRight(node->right);
+    }
+    rotateLeft(node);
+  }
+}
+
+void DishBST::rotateLeft(DishNode *&node) {
+  DishNode *rightChild = node->right;
+  node->right = rightChild->left;
+  rightChild->left = node;
+  node = rightChild;
+}
+
+void DishBST::rotateRight(DishNode *&node) {
+  DishNode *leftChild = node->left;
+  node->left = leftChild->right;
+  leftChild->right = node;
+  node = leftChild;
+}
+
+int DishBST::getBalanceFactor(DishNode *node) const {
+  if (node == nullptr) return 0;
+    const int leftSubTreeDepth = getHeight(node->left);
+    const int rightSubTreeDepth = getHeight(node->right);
+    return leftSubTreeDepth - rightSubTreeDepth;
+}
+
+void DishBST::showStatistics() const {
+  std::cout << "Balance factor: " << getBalanceFactor(root) << std::endl;
+  printNodes();
+}
+
+void DishBST::printNodes() const {
+  printNodeHelper(root);
+}
+
+void DishBST::printNodeHelper(DishNode *node) const {
+  std::cout << node->orderCount << " | izq: " << (node->left != nullptr ? node->left->orderCount : -1) << " | der: " << (node->right != nullptr ? node->right->orderCount : -1) << std::endl;
+  if (node->left != nullptr) printNodeHelper(node->left);
+  if (node->right != nullptr) printNodeHelper(node->right);
 }
 

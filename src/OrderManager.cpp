@@ -481,3 +481,6 @@ void OrderManager::findAndPrintTopNDishes(int n) const {
 }
 
 
+void OrderManager::showDishBSTStatistics() const {
+  dishBST.showStatistics();
+}

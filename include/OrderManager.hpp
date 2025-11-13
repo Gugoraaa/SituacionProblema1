@@ -28,6 +28,7 @@ public:
     // Métodos para el BST de platillos
     void buildDishBST();
     void printDishBST() const;
+    void showDishBSTStatistics() const;
     void printDishBSTReverse() const;
     void findAndPrintMostOrderedDishes() const;
     void findAndPrintTopNDishes(int n) const;
