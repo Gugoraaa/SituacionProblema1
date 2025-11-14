@@ -357,6 +357,14 @@ void DishBST::collectTopNDishes(DishNode* node, int& remaining, Dish*& resultDis
     collectTopNDishes(node->left, remaining, resultDishes, resultCount);
 }
 
+/*
+    funcion: getHeight
+    Descripcion: Calcula la altura del subárbol cuyo nodo raíz es el indicado.
+    Parametros:
+        - node (DishNode*): Nodo raíz del subárbol del que se desea la altura.
+    Return: (int) Altura del subárbol; 0 si el nodo es nulo.
+    Complejidad: O(n), donde n es el número de nodos en el subárbol, dado que recorre todos sus hijos.
+*/
 int DishBST::getHeight(DishNode *node) const {
     if (node == nullptr) return 0;
     const int leftHeight = getHeight(node->left);
@@ -364,6 +372,15 @@ int DishBST::getHeight(DishNode *node) const {
     return 1 + (leftHeight > rightHeight ? leftHeight : rightHeight);
 }
 
+/*
+    funcion: balanceWholeTree
+    Descripcion: Balancea recursivamente todo el árbol verificando y corrigiendo
+                 desequilibrios en cada nodo mediante rotaciones AVL simples o dobles.
+    Parametros:
+        - node (DishNode*&): Referencia al puntero del subárbol actual a balancear.
+    Return: N/A
+    Complejidad: O(n), donde n es el número de nodos porque visita cada nodo una vez.
+*/
 void DishBST::balanceWholeTree(DishNode*& node){
   if (node == nullptr) return;
   balanceWholeTree(node->left);
@@ -383,6 +400,15 @@ void DishBST::balanceWholeTree(DishNode*& node){
   }
 }
 
+/*
+    funcion: balanceSubtree
+    Descripcion: Balancea únicamente el subárbol dado aplicando rotaciones cuando
+                 el factor de balance excede el rango permitido en un árbol AVL.
+    Parametros:
+        - node (DishNode*&): Referencia al subárbol que se desea balancear.
+    Return: N/A
+    Complejidad: O(h), donde h es la altura del subárbol evaluado.
+*/
 void DishBST::balanceSubtree(DishNode*& node) {
   if (node == nullptr) return;
   const int balance = getBalanceFactor(node);
@@ -400,6 +426,15 @@ void DishBST::balanceSubtree(DishNode*& node) {
   }
 }
 
+/*
+        funcion: rotateLeft
+        Descripcion: Realiza una rotación simple a la izquierda sobre el nodo indicado
+                                 para corregir un desequilibrio hacia la derecha.
+        Parametros:
+                - node (DishNode*&): Referencia al nodo que actuará como pivote de la rotación.
+        Return: N/A
+        Complejidad: O(1)
+*/
 void DishBST::rotateLeft(DishNode *&node) {
   DishNode *rightChild = node->right;
   node->right = rightChild->left;
@@ -407,6 +442,15 @@ void DishBST::rotateLeft(DishNode *&node) {
   node = rightChild;
 }
 
+/*
+        funcion: rotateRight
+        Descripcion: Realiza una rotación simple a la derecha sobre el nodo indicado
+                                 para corregir un desequilibrio hacia la izquierda.
+        Parametros:
+                - node (DishNode*&): Referencia al nodo pivote de la rotación.
+        Return: N/A
+        Complejidad: O(1)
+*/
 void DishBST::rotateRight(DishNode *&node) {
   DishNode *leftChild = node->left;
   node->left = leftChild->right;
@@ -414,6 +458,15 @@ void DishBST::rotateRight(DishNode *&node) {
   node = leftChild;
 }
 
+/*
+        funcion: getBalanceFactor
+        Descripcion: Calcula el factor de balance de un nodo como la diferencia entre
+                                 las alturas de sus subárboles izquierdo y derecho.
+        Parametros:
+                - node (DishNode*): Nodo del cual se requiere el factor de balance.
+        Return: (int) Diferencia de alturas izquierda - derecha.
+        Complejidad: O(h), donde h es la altura del subárbol porque requiere obtener alturas.
+*/
 int DishBST::getBalanceFactor(DishNode *node) const {
   if (node == nullptr) return 0;
     const int leftSubTreeDepth = getHeight(node->left);
@@ -421,15 +474,40 @@ int DishBST::getBalanceFactor(DishNode *node) const {
     return leftSubTreeDepth - rightSubTreeDepth;
 }
 
+/*
+        funcion: showStatistics
+        Descripcion: Imprime en consola métricas básicas del árbol, como el factor de balance
+                                 de la raíz y la estructura de sus nodos.
+        Parametros: Ninguno
+        Return: N/A
+        Complejidad: O(n), debido a que recorre los nodos para mostrarlos.
+*/
 void DishBST::showStatistics() const {
   std::cout << "Balance factor: " << getBalanceFactor(root) << std::endl;
   printNodes();
 }
 
+/*
+        funcion: printNodes
+        Descripcion: Inicia la impresión recursiva de cada nodo y sus conexiones para
+                                 visualizar la estructura del árbol.
+        Parametros: Ninguno
+        Return: N/A
+        Complejidad: O(n), donde n es la cantidad de nodos impresos.
+*/
 void DishBST::printNodes() const {
   printNodeHelper(root);
 }
 
+/*
+        funcion: printNodeHelper
+        Descripcion: Función auxiliar que imprime la información de un nodo, mostrando
+                                 los valores de sus hijos izquierdo y derecho, y recorre el árbol recursivamente.
+        Parametros:
+                - node (DishNode*): Nodo actual que se va a imprimir.
+        Return: N/A
+        Complejidad: O(n), ya que visita cada nodo exactamente una vez.
+*/
 void DishBST::printNodeHelper(DishNode *node) const {
   std::cout << node->orderCount << " | izq: " << (node->left != nullptr ? node->left->orderCount : -1) << " | der: " << (node->right != nullptr ? node->right->orderCount : -1) << std::endl;
   if (node->left != nullptr) printNodeHelper(node->left);
