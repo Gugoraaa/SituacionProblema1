@@ -3,11 +3,13 @@
 #include <Order.hpp>
 #include <Dish.hpp>
 #include <DishBST.hpp>
+#include <Graph.hpp>
 
 class OrderManager {
 public:
     // Constructor sin parametros
     OrderManager();
+    ~OrderManager() = default;
 
     // Metodos para el manejo del contenido de los archivos de texto
     bool loadOrders(const String & filename);
@@ -32,6 +34,18 @@ public:
     void printDishBSTReverse() const;
     void findAndPrintMostOrderedDishes() const;
     void findAndPrintTopNDishes(int n) const;
+    
+    // Métodos para el Grafo de relaciones Platillo-Restaurante
+    void buildGraph();
+    void printGraph() const;
+    void showGraphStatistics() const;
+    void ejecutarBFSDesdeplatillo(const String& nombrePlatillo) const;
+    void ejecutarDFSDesdeplatillo(const String& nombrePlatillo) const;
+    void buscarRestaurantesDePlatillo(const String& nombrePlatillo) const;
+    void mostrarPlatilloMasConectado() const;
+    Graph& getGraph();
+    const Graph& getGraph() const;
+    
 private:
     Order parseLine(String& line);
     int findOrder(long long val,bool exact,bool last) const;
@@ -40,6 +54,7 @@ private:
     Order orders[MAX_ORDERS]; 
     Dish dishes[MAX_ORDERS];
     DishBST dishBST;
+    Graph dishRestaurantGraph;
     int partition(Order* arr, int low, int high);
     void quickSort(Order* arr, int low, int high);
     int dishesCount = 0;

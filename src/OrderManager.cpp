@@ -484,3 +484,160 @@ void OrderManager::findAndPrintTopNDishes(int n) const {
 void OrderManager::showDishBSTStatistics() const {
   dishBST.showStatistics();
 }
+
+/*
+    funcion: buildGraph
+    Descripcion: Construye un grafo dirigido donde los vértices son Platillos y 
+                 Restaurantes, y las aristas representan "este platillo se vende 
+                 en este restaurante". El peso de cada arista indica cuántas veces
+                 se ha pedido ese platillo en ese restaurante.
+    
+    ESTRUCTURA DEL GRAFO:
+    - Nodos tipo 'P': Platillos
+    - Nodos tipo 'R': Restaurantes  
+    - Aristas: Platillo -> Restaurante (dirigido)
+    - Peso: Número de pedidos de ese platillo en ese restaurante
+    
+    Parametros: Ninguno
+    Return: N/A
+    Complejidad: O(n) donde n es el número de órdenes
+*/
+void OrderManager::buildGraph() {
+    // Limpiar grafo anterior si existe
+    dishRestaurantGraph.limpiarGrafo();
+    
+    // Recorrer todas las órdenes y construir el grafo
+    for (int i = 0; i < orderCount; ++i) {
+        String nombrePlatillo = orders[i].getOrder();
+        String nombreRestaurante = orders[i].getRestaurant();
+        
+        // Obtener o crear nodos para platillo y restaurante
+        int idPlatillo = dishRestaurantGraph.obtenerOcrearNodo(nombrePlatillo, 'P');
+        int idRestaurante = dishRestaurantGraph.obtenerOcrearNodo(nombreRestaurante, 'R');
+        
+        // Agregar arista dirigida: Platillo -> Restaurante
+        // Si ya existe, incrementa el peso (frecuencia de pedidos)
+        if (idPlatillo >= 0 && idRestaurante >= 0) {
+            dishRestaurantGraph.agregarArista(idPlatillo, idRestaurante);
+        }
+    }
+    
+    std::cout << "Grafo construido exitosamente!" << std::endl;
+    dishRestaurantGraph.imprimirEstadisticas();
+}
+
+/*
+    funcion: printGraph
+    Descripcion: Imprime la estructura completa del grafo mostrando todos los
+                 platillos con sus conexiones a restaurantes.
+    Parametros: Ninguno
+    Return: N/A
+    Complejidad: O(V + E)
+*/
+void OrderManager::printGraph() const {
+    dishRestaurantGraph.imprimirGrafo();
+}
+
+/*
+    funcion: showGraphStatistics
+    Descripcion: Muestra estadísticas detalladas del grafo.
+    Parametros: Ninguno
+    Return: N/A
+    Complejidad: O(V + E)
+*/
+void OrderManager::showGraphStatistics() const {
+    dishRestaurantGraph.imprimirEstadisticas();
+}
+
+/*
+    funcion: ejecutarBFSDesdeplatillo
+    Descripcion: Ejecuta una búsqueda en anchura (BFS) desde un platillo específico.
+                 Útil para ver todos los restaurantes conectados al platillo.
+    Parametros:
+        - nombrePlatillo: Nombre del platillo desde donde iniciar BFS
+    Return: N/A
+    Complejidad: O(V + E)
+*/
+void OrderManager::ejecutarBFSDesdeplatillo(const String& nombrePlatillo) const {
+    int idPlatillo = dishRestaurantGraph.buscarNodoPorNombre(nombrePlatillo);
+    
+    if (idPlatillo == -1) {
+        std::cout << "Platillo '" << nombrePlatillo << "' no encontrado en el grafo." << std::endl;
+        return;
+    }
+    
+    if (dishRestaurantGraph.getTipoNodo(idPlatillo) != 'P') {
+        std::cout << "'" << nombrePlatillo << "' no es un platillo." << std::endl;
+        return;
+    }
+    
+    dishRestaurantGraph.ejecutarBFS(idPlatillo);
+}
+
+/*
+    funcion: ejecutarDFSDesdeplatillo
+    Descripcion: Ejecuta una búsqueda en profundidad (DFS) desde un platillo.
+    Parametros:
+        - nombrePlatillo: Nombre del platillo desde donde iniciar DFS
+    Return: N/A
+    Complejidad: O(V + E)
+*/
+void OrderManager::ejecutarDFSDesdeplatillo(const String& nombrePlatillo) const {
+    int idPlatillo = dishRestaurantGraph.buscarNodoPorNombre(nombrePlatillo);
+    
+    if (idPlatillo == -1) {
+        std::cout << "Platillo '" << nombrePlatillo << "' no encontrado en el grafo." << std::endl;
+        return;
+    }
+    
+    if (dishRestaurantGraph.getTipoNodo(idPlatillo) != 'P') {
+        std::cout << "'" << nombrePlatillo << "' no es un platillo." << std::endl;
+        return;
+    }
+    
+    dishRestaurantGraph.ejecutarDFS(idPlatillo);
+}
+
+/*
+    funcion: buscarRestaurantesDePlatillo
+    Descripcion: Muestra todos los restaurantes donde se vende un platillo
+                 específico, junto con el número de pedidos en cada uno.
+    Parametros:
+        - nombrePlatillo: Nombre del platillo a buscar
+    Return: N/A
+    Complejidad: O(n + k)
+*/
+void OrderManager::buscarRestaurantesDePlatillo(const String& nombrePlatillo) const {
+    dishRestaurantGraph.obtenerRestaurantesDePlatillo(nombrePlatillo);
+}
+
+/*
+    funcion: mostrarPlatilloMasConectado
+    Descripcion: Encuentra y muestra el platillo que se vende en más restaurantes.
+    Parametros: Ninguno
+    Return: N/A
+    Complejidad: O(V + E)
+*/
+void OrderManager::mostrarPlatilloMasConectado() const {
+    dishRestaurantGraph.obtenerPlatilloMasConectado();
+}
+
+/*
+    funcion: getGraph
+    Descripcion: Retorna una referencia al grafo para acceso directo.
+    Return: Referencia al Graph
+    Complejidad: O(1)
+*/
+Graph& OrderManager::getGraph() {
+    return dishRestaurantGraph;
+}
+
+/*
+    funcion: getGraph (const)
+    Descripcion: Retorna una referencia constante al grafo.
+    Return: Referencia constante al Graph
+    Complejidad: O(1)
+*/
+const Graph& OrderManager::getGraph() const {
+    return dishRestaurantGraph;
+}

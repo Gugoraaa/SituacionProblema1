@@ -65,13 +65,14 @@ int main() {
   
   bool continuarAnalisis = true;
   while (continuarAnalisis) {
-    cout << "\n----- Menú de Análisis de Platillos -----" << endl;
+    cout << "\n----- Menú de Análisis de Platillos (BST) -----" << endl;
     cout << "1. Mostrar platillo(s) más solicitado(s)" << endl;
     cout << "2. Mostrar Top N platillos más solicitados" << endl;
     cout << "3. Mostrar BST completo (orden ascendente)" << endl;
     cout << "4. Mostrar BST completo (orden descendente)" << endl;
-    cout << "5. Continuar con búsqueda por fechas" << endl;
-    cout << "Selecciona una opción (1-5): ";
+    cout << "5. Ir al análisis con Grafos" << endl;
+    cout << "6. Continuar con búsqueda por fechas" << endl;
+    cout << "Selecciona una opción (1-6): ";
     
     String opcionAnalisis;
     getline(cin, opcionAnalisis);
@@ -89,9 +90,62 @@ int main() {
     } else if (opcionAnalisis == "4") {
       manager.printDishBSTReverse();
     } else if (opcionAnalisis == "5") {
+      break;
+    } else if (opcionAnalisis == "6") {
       continuarAnalisis = false;
     } else {
       cout << "Opción no válida. Intenta de nuevo." << endl;
+    }
+  }
+  
+  if (continuarAnalisis) {
+    cout << "\n---------------------------------------------------" << endl;
+    cout << "------ Análisis con Grafo Platillo-Restaurante ------" << endl;
+    cout << "---------------------------------------------------" << endl;
+    cout << "\nConstruyendo Grafo de relaciones Platillo -> Restaurante..." << endl;
+    manager.buildGraph();
+    
+    bool continuarGrafos = true;
+    while (continuarGrafos) {
+      cout << "\n----- Menú de Análisis con Grafos -----" << endl;
+      cout << "1. Ver estructura del grafo" << endl;
+      cout << "2. Ver estadísticas del grafo" << endl;
+      cout << "3. Buscar restaurantes de un platillo" << endl;
+      cout << "4. Ejecutar BFS desde un platillo" << endl;
+      cout << "5. Ejecutar DFS desde un platillo" << endl;
+      cout << "6. Ver platillo más conectado (más restaurantes)" << endl;
+      cout << "7. Continuar con búsqueda por fechas" << endl;
+      cout << "Selecciona una opción (1-7): ";
+      
+      String opcionGrafo;
+      getline(cin, opcionGrafo);
+      
+      if (opcionGrafo == "1") {
+        manager.printGraph();
+      } else if (opcionGrafo == "2") {
+        manager.showGraphStatistics();
+      } else if (opcionGrafo == "3") {
+        cout << "\nIngresa el nombre del platillo: ";
+        String nombrePlatillo;
+        getline(cin, nombrePlatillo);
+        manager.buscarRestaurantesDePlatillo(nombrePlatillo);
+      } else if (opcionGrafo == "4") {
+        cout << "\nIngresa el nombre del platillo para BFS: ";
+        String nombrePlatillo;
+        getline(cin, nombrePlatillo);
+        manager.ejecutarBFSDesdeplatillo(nombrePlatillo);
+      } else if (opcionGrafo == "5") {
+        cout << "\nIngresa el nombre del platillo para DFS: ";
+        String nombrePlatillo;
+        getline(cin, nombrePlatillo);
+        manager.ejecutarDFSDesdeplatillo(nombrePlatillo);
+      } else if (opcionGrafo == "6") {
+        manager.mostrarPlatilloMasConectado();
+      } else if (opcionGrafo == "7") {
+        continuarGrafos = false;
+      } else {
+        cout << "Opción no válida. Intenta de nuevo." << endl;
+      }
     }
   }
 
