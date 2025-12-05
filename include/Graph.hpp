@@ -42,13 +42,13 @@ struct Vertice {
 
 /*
     class: Graph
-    Descripcion: Grafo dirigido implementado con listas de adyacencia enlazadas.
-                 Representa las relaciones Platillo -> Restaurante.
+    Descripcion: Grafo BIDIRECCIONAL (no dirigido) implementado con listas de adyacencia enlazadas.
+                 Representa las relaciones Platillo <-> Restaurante.
                  
     CARACTERÍSTICAS:
-    - Grafo DIRIGIDO: Solo conectamos Platillo -> Restaurante
-    - Listas enlazadas manuales
-    - Soporta BFS
+    - Grafo BIDIRECCIONAL: Conectamos Platillo <-> Restaurante en ambas direcciones
+    - Listas enlazadas manuales (sin std::vector)
+    - Soporta BFS y DFS
     - Manejo manual de memoria con new/delete
 */
 class Graph {
@@ -56,7 +56,7 @@ public:
     Graph();
     int obtenerOcrearNodo(const String& nombre, char tipo);
     NodoAdyacencia* buscarArista(int idOrigen, int idDestino) const;
-    void agregarArista(int idOrigen, int idDestino) const;
+    void agregarArista(int idOrigen, int idDestino);  // Bidireccional
     void ejecutarBFS(int nodoInicio) const;
     void ejecutarDFS(int nodoInicio) const;
     int buscarNodoPorNombre(const String& nombre) const;
@@ -76,6 +76,7 @@ private:
     int numNodos;
     
     void dfsRecursivo(int nodo, bool* visitado) const;
+    void agregarAristaUnidireccional(int idOrigen, int idDestino);  // Función auxiliar
 };
 
 #endif // GRAPH_HPP

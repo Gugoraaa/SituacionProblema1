@@ -9,6 +9,7 @@ Makefile
 *.o
 *.out
 *.d
+.DS_Store
 
 # Ejecutable
 SituacionProblema

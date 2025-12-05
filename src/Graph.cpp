@@ -144,29 +144,15 @@ NodoAdyacencia* Graph::buscarArista(int idOrigen, int idDestino) const {
 }
 
 /*
-    funcion: agregarArista
-    Descripcion: Agrega una arista dirigida origen -> destino.
-                 Si ya existe, incrementa el peso (frecuencia).
-                 Usa inserción al inicio para O(1).
-    
-    EJEMPLO DE INSERCIÓN AL INICIO:
-    Lista actual: [Burger King] -> NULL
-    Insertar: [McDonalds]
-    Paso 1: [McDonalds]->siguiente apunta a [Burger King]
-    Paso 2: La cabeza ahora apunta a [McDonalds]
-    Resultado: [McDonalds] -> [Burger King] -> NULL
-    
+    funcion: agregarAristaUnidireccional
+    Descripcion: Función auxiliar que agrega una arista en UNA sola dirección.
+                 Si ya existe, incrementa el peso.
     Parametros:
         - idOrigen: ID del nodo origen
         - idDestino: ID del nodo destino
     Complejidad: O(k) búsqueda + O(1) inserción
 */
-void Graph::agregarArista(int idOrigen, int idDestino) const {
-    if (idOrigen < 0 || idOrigen >= numNodos || 
-        idDestino < 0 || idDestino >= numNodos) {
-        return;
-    }
-    
+void Graph::agregarAristaUnidireccional(int idOrigen, int idDestino) {
     // Buscar si ya existe la arista
     NodoAdyacencia* existente = buscarArista(idOrigen, idDestino);
     
@@ -175,11 +161,35 @@ void Graph::agregarArista(int idOrigen, int idDestino) const {
         existente->peso++;
     } else {
         // CASO 2: No existe, crear nuevo nodo
-        // TRUCO: Inserción al inicio de la lista (O(1))
         NodoAdyacencia* nuevo = new NodoAdyacencia(idDestino, 1);
         nuevo->siguiente = grafo[idOrigen].cabezaLista;
         grafo[idOrigen].cabezaLista = nuevo;
     }
+}
+
+/*
+    funcion: agregarArista
+    Descripcion: Agrega una arista BIDIRECCIONAL entre origen y destino.
+                 Crea conexiones en ambas direcciones:
+                   - origen -> destino
+                   - destino -> origen
+                 Si ya existen, incrementa el peso en ambas direcciones.
+                 Usa inserción al inicio para O(1).
+    
+    Parametros:
+        - idOrigen: ID del nodo origen (típicamente un Platillo)
+        - idDestino: ID del nodo destino (típicamente un Restaurante)
+    Complejidad: O(k1 + k2) búsqueda en ambas listas + O(1) inserción
+*/
+void Graph::agregarArista(int idOrigen, int idDestino) {
+    if (idOrigen < 0 || idOrigen >= numNodos || 
+        idDestino < 0 || idDestino >= numNodos) {
+        return;
+    }
+    
+    // Agregar arista en ambas direcciones (grafo bidireccional/no dirigido)
+    agregarAristaUnidireccional(idOrigen, idDestino);  // origen -> destino
+    agregarAristaUnidireccional(idDestino, idOrigen);  // destino -> origen
 }
 
 /*
@@ -340,89 +350,123 @@ int Graph::buscarNodoPorNombre(const String& nombre) const {
 
 /*
     funcion: imprimirGrafo
-    Descripcion: Muestra la estructura completa del grafo con todas sus conexiones.
+    Descripcion: Muestra la estructura completa del grafo bidireccional con todas sus conexiones.
     Complejidad: O(V + E)
 */
 void Graph::imprimirGrafo() const {
-    std::cout << "\n========== ESTRUCTURA DEL GRAFO ==========" << std::endl;
+    std::cout << "\n========== ESTRUCTURA DEL GRAFO BIDIRECCIONAL ==========" << std::endl;
     std::cout << "Total de nodos: " << numNodos << std::endl;
-    std::cout << "-------------------------------------------" << std::endl;
+    std::cout << "---------------------------------------------------------" << std::endl;
     
     int platillosCount = 0;
     int restaurantesCount = 0;
     
+    // Primero mostrar platillos y sus conexiones
+    std::cout << "\n--- PLATILLOS ---" << std::endl;
     for (int i = 0; i < numNodos; ++i) {
         if (grafo[i].tipo == 'P') {
             platillosCount++;
             std::cout << "\n[PLATILLO] " << grafo[i].nombre << " (ID: " << i << ")" << std::endl;
-            std::cout << "  Conexiones a restaurantes:" << std::endl;
+            std::cout << "  Conexiones bidireccionales:" << std::endl;
             
             NodoAdyacencia* vecino = grafo[i].cabezaLista;
             if (vecino == nullptr) {
                 std::cout << "    (sin conexiones)" << std::endl;
             }
             while (vecino != nullptr) {
-                std::cout << "    -> " << grafo[vecino->idDestino].nombre 
+                std::cout << "    <-> " << grafo[vecino->idDestino].nombre 
                           << " (pedidos: " << vecino->peso << ")" << std::endl;
                 vecino = vecino->siguiente;
             }
-        } else {
-            restaurantesCount++;
         }
     }
     
-    std::cout << "\n-------------------------------------------" << std::endl;
+    // Luego mostrar restaurantes y sus conexiones
+    std::cout << "\n--- RESTAURANTES ---" << std::endl;
+    for (int i = 0; i < numNodos; ++i) {
+        if (grafo[i].tipo == 'R') {
+            restaurantesCount++;
+            std::cout << "\n[RESTAURANTE] " << grafo[i].nombre << " (ID: " << i << ")" << std::endl;
+            std::cout << "  Platillos que vende:" << std::endl;
+            
+            NodoAdyacencia* vecino = grafo[i].cabezaLista;
+            if (vecino == nullptr) {
+                std::cout << "    (sin platillos)" << std::endl;
+            }
+            while (vecino != nullptr) {
+                std::cout << "    <-> " << grafo[vecino->idDestino].nombre 
+                          << " (pedidos: " << vecino->peso << ")" << std::endl;
+                vecino = vecino->siguiente;
+            }
+        }
+    }
+    
+    std::cout << "\n---------------------------------------------------------" << std::endl;
     std::cout << "Resumen: " << platillosCount << " platillos, " 
               << restaurantesCount << " restaurantes" << std::endl;
-    std::cout << "===========================================" << std::endl;
+    std::cout << "=========================================================" << std::endl;
 }
 
 /*
     funcion: imprimirEstadisticas
-    Descripcion: Muestra estadísticas detalladas del grafo.
+    Descripcion: Muestra estadísticas detalladas del grafo bidireccional.
     Complejidad: O(V + E)
 */
 void Graph::imprimirEstadisticas() const {
     int numPlatillos = 0;
     int numRestaurantes = 0;
-    int totalAristas = 0;
+    int totalAristasContadas = 0;  // Cuenta cada arista 2 veces (bidireccional)
     int pesoTotal = 0;
-    int maxConexiones = 0;
+    int maxConexionesPlatillo = 0;
+    int maxConexionesRestaurante = 0;
     String platilloMasConectado = "";
+    String restauranteMasConectado = "";
     
     for (int i = 0; i < numNodos; ++i) {
+        int conexiones = 0;
+        NodoAdyacencia* vecino = grafo[i].cabezaLista;
+        while (vecino != nullptr) {
+            conexiones++;
+            totalAristasContadas++;
+            pesoTotal += vecino->peso;
+            vecino = vecino->siguiente;
+        }
+        
         if (grafo[i].tipo == 'P') {
             numPlatillos++;
-            int conexiones = 0;
-            NodoAdyacencia* vecino = grafo[i].cabezaLista;
-            while (vecino != nullptr) {
-                conexiones++;
-                totalAristas++;
-                pesoTotal += vecino->peso;
-                vecino = vecino->siguiente;
-            }
-            if (conexiones > maxConexiones) {
-                maxConexiones = conexiones;
+            if (conexiones > maxConexionesPlatillo) {
+                maxConexionesPlatillo = conexiones;
                 platilloMasConectado = grafo[i].nombre;
             }
         } else {
             numRestaurantes++;
+            if (conexiones > maxConexionesRestaurante) {
+                maxConexionesRestaurante = conexiones;
+                restauranteMasConectado = grafo[i].nombre;
+            }
         }
     }
     
-    std::cout << "\n========== ESTADÍSTICAS DEL GRAFO ==========" << std::endl;
+    // En grafo bidireccional, cada arista se cuenta 2 veces
+    int aristasReales = totalAristasContadas / 2;
+    int pesoReal = pesoTotal / 2;
+    
+    std::cout << "\n========== ESTADÍSTICAS DEL GRAFO BIDIRECCIONAL ==========" << std::endl;
+    std::cout << "Tipo de grafo: NO DIRIGIDO (bidireccional)" << std::endl;
     std::cout << "Número total de nodos: " << numNodos << std::endl;
     std::cout << "  - Platillos: " << numPlatillos << std::endl;
     std::cout << "  - Restaurantes: " << numRestaurantes << std::endl;
-    std::cout << "Número total de aristas: " << totalAristas << std::endl;
-    std::cout << "Suma total de pesos (pedidos): " << pesoTotal << std::endl;
-    if (totalAristas > 0) {
+    std::cout << "Número total de aristas (conexiones únicas): " << aristasReales << std::endl;
+    std::cout << "Suma total de pesos (pedidos): " << pesoReal << std::endl;
+    if (aristasReales > 0) {
         std::cout << "Peso promedio por arista: " 
-                  << static_cast<double>(pesoTotal) / totalAristas << std::endl;
+                  << static_cast<double>(pesoReal) / aristasReales << std::endl;
     }
     std::cout << "Platillo más conectado: " << platilloMasConectado 
-              << " (" << maxConexiones << " restaurantes)" << std::endl;
-    std::cout << "=============================================" << std::endl;
+              << " (" << maxConexionesPlatillo << " restaurantes)" << std::endl;
+    std::cout << "Restaurante más conectado: " << restauranteMasConectado 
+              << " (" << maxConexionesRestaurante << " platillos)" << std::endl;
+    std::cout << "===========================================================" << std::endl;
 }
 
 /*
